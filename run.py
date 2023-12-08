@@ -30,7 +30,7 @@ def input_bee_location(hive):
     while True:
         try:
             bee_row = input("Enter the row of where you'd like to place a "
-                            "bee: ")
+                            "bee: \n")
             if bee_row in '01234567':
                 bee_row = int(bee_row)
                 break
@@ -39,7 +39,7 @@ def input_bee_location(hive):
     while True:
         try:
             bee_column = input("Enter the column of where you'd like to place "
-                               "a bee: ")
+                               "a bee: \n")
             if bee_column in '01234567':
                 bee_column = int(bee_column)
                 break
@@ -77,7 +77,8 @@ def guess_bee_location(hive):
     for turn in range(5):
         while True:
             try:
-                guess_row = int(input('Guess which row a bee is hiding on:'))
+                guess_row = int(input('Guess which row a bee is hiding '
+                                      'on:\n'))
                 if guess_row in range(0, 7):
                     break
             except ValueError:
@@ -85,7 +86,7 @@ def guess_bee_location(hive):
         while True:
             try:
                 guess_column = int(input('Guess which column a bee is hiding '
-                                         'on:'))
+                                         'on:\n'))
                 if guess_column in range(0, 7):
                     break
             except ValueError:
