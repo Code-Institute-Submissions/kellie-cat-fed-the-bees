@@ -27,7 +27,7 @@ def input_bee_location(hive):
         except ValueError:
             print('Enter a valid number 0 - 7')
     while True:
-        try: 
+        try:
             bee_column = input("Enter the column of where you'd like to place a bee: ")
             if bee_column in '01234567':
                 bee_column = int(bee_column)
@@ -37,10 +37,21 @@ def input_bee_location(hive):
     return bee_row, bee_column
 
 
+def player_create_bees(hive):
+    for bee in range(5):
+        bee_row, bee_column = input_bee_location(hive)
+        while hive[bee_row][bee_column] == '0':
+            print('There is already a bee hiding there, choose another')
+            bee_row, bee_column = input_bee_location(hive)
+        hive[bee_row][bee_column] = '0'
+    print('This is where your bees are hiding')
+    print_hive(hive)
+
+
 def start_game():
     print('Check start game')
     print_hive(PLAYER_VISIBLE_HIVE)
-    input_bee_location(COMPUTER_VISIBLE_HIVE)
+    player_create_bees(COMPUTER_VISIBLE_HIVE)
 
 
 start_game()
