@@ -17,9 +17,30 @@ def print_hive(hive):
         row_number += 1
 
 
+def input_bee_location(hive):
+    while True:
+        try:
+            bee_row = input("Enter the row of where you'd like to place a bee: ")
+            if bee_row in '01234567':
+                bee_row = int(bee_row)
+                break
+        except ValueError:
+            print('Enter a valid number 0 - 7')
+    while True:
+        try: 
+            bee_column = input("Enter the column of where you'd like to place a bee: ")
+            if bee_column in '01234567':
+                bee_column = int(bee_column)
+                break
+        except ValueError:
+            print('Try again')
+    return bee_row, bee_column
+
+
 def start_game():
     print('Check start game')
     print_hive(PLAYER_VISIBLE_HIVE)
+    input_bee_location(COMPUTER_VISIBLE_HIVE)
 
 
 start_game()
