@@ -1,5 +1,10 @@
 from random import randint
 
+import pyfiglet
+
+import colorama
+from colorama import Fore, Back, Style
+
 SIZE = 8
 NUM_BEES = 10
 
@@ -61,6 +66,9 @@ def guess_bee_location(hive):
 def start_game():
     computer_create_bees(PLAYER_BEE_HIVE)
     print_hive(PLAYER_VISIBLE_HIVE)
+    result = pyfiglet.figlet_format('FREE THE BEES',
+                                    font="bubble")
+    print(result)
     print('Introduction')
     print('Instructions')
     for turn in range(0, 5, 1):
@@ -69,13 +77,14 @@ def start_game():
             print_hive(PLAYER_VISIBLE_HIVE)
             guess_row, guess_column = guess_bee_location(PLAYER_BEE_HIVE)
             if PLAYER_VISIBLE_HIVE[guess_row][guess_column] == "-":
-                print("You guessed that one already, have another try.")
+                print(Fore.YELLOW + "You guessed that one already, have "
+                      "another try." + Fore.RESET)
             elif PLAYER_BEE_HIVE[guess_row][guess_column] == "0":
-                print("You fed the bee!")
+                print(Fore.GREEN + "You fed the bee!" + Fore.RESET)
                 PLAYER_VISIBLE_HIVE[guess_row][guess_column] = "0"
                 break
             else:
-                print("MISS! The bees are still hungry")
+                print(Fore.RED + "MISS! The bees are still hungry" + Fore.RESET)
                 PLAYER_VISIBLE_HIVE[guess_row][guess_column] = "-"
                 break
             turn += 1
