@@ -118,6 +118,7 @@ def start_game():
                 break
     while True:
         """
+        Computer's turn
         """
 
 
