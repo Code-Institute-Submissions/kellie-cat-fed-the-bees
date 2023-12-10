@@ -32,7 +32,8 @@ def computer_create_bees(hive):
     """
     for bee in range(NUM_BEES):
         bee_row, bee_column = randint(0, 7), randint(0, 7)
-        hive[bee_row][bee_column] = "0"
+        hive[bee_row][bee_column] = "X"
+        bee_coordinates = bee_row, bee_column
         print(bee_row, bee_column)
 
 
@@ -79,7 +80,10 @@ def start_game():
             if PLAYER_VISIBLE_HIVE[guess_row][guess_column] == "-":
                 print(Fore.YELLOW + "You guessed that one already, have "
                       "another try." + Fore.RESET)
-            elif PLAYER_BEE_HIVE[guess_row][guess_column] == "0":
+            elif PLAYER_VISIBLE_HIVE[guess_row][guess_column] == "0":
+                print(Fore.YELLOW + "You guessed that one already, have "
+                      "another try." + Fore.RESET)
+            elif PLAYER_BEE_HIVE[guess_row][guess_column] == "X":
                 print(Fore.GREEN + "You fed the bee!" + Fore.RESET)
                 PLAYER_VISIBLE_HIVE[guess_row][guess_column] = "0"
                 break

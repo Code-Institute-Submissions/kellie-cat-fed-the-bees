@@ -5,7 +5,7 @@ Bees are crucial to the planet as we know it. Colony Collapse Disorder was first
 
 ![Screenshot of Free the Bees]( "Free the Bees on Am I Responsive")
 
-[View Free the Bees on Github Pages](https://kellie-cat.github.io/free-the-bees/)
+[View Free the Bees on Github Pages](https://kellie-cat.github.io/fed-the-bees/)
 
 ![GitHub contributors]()
 ![GitHub top language]()
