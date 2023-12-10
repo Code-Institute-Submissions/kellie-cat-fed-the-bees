@@ -48,11 +48,11 @@ def print_hive(hive):
     """
     Displays the hive
     """
-    print("  0  1  2  3  4  5  6  7")
+    print("  1  2  3  4  5  6  7  8")
     print(Fore.YELLOW + "  -----------------------" + Fore.RESET)
-    row_number = 0
+    row_number = 1
     for row in hive:
-        print(row_number, Fore.YELLOW + "| ".join(row) + Fore. RESET)
+        print(row_number, Fore.YELLOW + "| ".join(row) + Fore.RESET)
         row_number += 1
 
 
@@ -68,23 +68,31 @@ def computer_create_bees(hive):
 
 
 def guess_bee_location(hive):
-    for turn in range(TURNS):
+    turn = 0
+    if turn in range(TURNS):
         while True:
             try:
                 guess_row = int(input('Guess which row a bee is hiding '
-                                      'on:\n'))
+                                      'on:\n')) - 1
                 if guess_row in range(0, 8):
                     break
+                elif guess_row not in range(0, 8):
+                    print("That choice is outside the hive. Pick a number from 1-8")
             except ValueError:
-                print('Guess not valid, try again')
+                print("That's not an appropriate choice, please select a "
+                      "valid row by picking a number from 1-8, then enter")
+
         while True:
             try:
                 guess_column = int(input('Guess which column a bee is hiding '
-                                         'on:\n'))
+                                         'on:\n')) - 1
                 if guess_column in range(0, 8):
                     break
+                elif guess_column not in range(0, 8):
+                    print("That choice is outside the hive. Pick a number from 1-8")
             except ValueError:
-                print('Guess not valid, try again')
+                print("That's not an appropriate choice, please select a "
+                      "valid row by picking a number from 1-8, then enter")
         return guess_row, guess_column
 
 
@@ -119,7 +127,10 @@ def start_game():
                 break
             turn += 1
     print_hive(PLAYER_VISIBLE_HIVE)
-    print(f'Well done for feeding {success} bees!')
+    if success != 0:
+        print(f'Well done for feeding {success} bees!')
+    else:
+        print('Bad luck, maybe you can more the bees next time.')
 
 
 start_game()
