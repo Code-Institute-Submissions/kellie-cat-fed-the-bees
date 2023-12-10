@@ -30,7 +30,18 @@ def print_intro():
     print('Feed the bees by guessing a coordinate you think they are at')
     print('When prompted, input a number for x-axis (horizontal rows) first')
     print('Then a number for the y-axis (vertical columns)')
-    input('Press enter to FEED THE BEES...\n')
+
+
+def get_player_name():
+    while True:
+        player = input("Please tell us your name so the bees can say "
+                       "thanks!\n")
+        if len(player) >= 2 and not player.isnumeric():
+            print(f'Thanks for helping the bees, {player}!')
+            break
+        else:
+            print("That name is not valid, please enter a name with letters,"
+                  " or characters, bees don't like strangers!")
 
 
 def print_hive(hive):
@@ -82,6 +93,8 @@ def start_game():
     computer_create_bees(PLAYER_BEE_HIVE)
 
     print_intro()
+
+    get_player_name()
 
     for turn in range(0, TURNS, 1):
         while True:
