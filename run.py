@@ -3,7 +3,7 @@ from random import randint
 import pyfiglet
 
 import colorama
-from colorama import Fore, Back, Style
+from colorama import Fore, Back
 
 SIZE = 8
 NUM_BEES = 10
@@ -16,8 +16,7 @@ PLAYER_VISIBLE_HIVE = [[" "] * 8 for i in range(SIZE)]
 
 
 def print_intro():
-    title_art = pyfiglet.figlet_format('FREE THE BEES',
-                                       font="bubble")
+    title_art = pyfiglet.figlet_format('FREE THE BEES', font="bubble")
     print(Fore.YELLOW + (title_art) + Fore.RESET)
     input("Press enter to start the game...\n")
     print("In a dystopian time, bees are hungry and can't escape their hive")
@@ -39,6 +38,8 @@ def get_player_name():
         if len(player) >= 2 and not player.isnumeric():
             print(f'Thanks for helping the bees, {player}!')
             break
+        elif len(player) <= 2:
+            print(f"The bees are friends, {player}, tell them your full name")
         else:
             print("That name is not valid, please enter a name with letters,"
                   " or characters, bees don't like strangers!")
@@ -63,7 +64,6 @@ def computer_create_bees(hive):
     for bee in range(NUM_BEES):
         bee_row, bee_column = randint(0, 7), randint(0, 7)
         hive[bee_row][bee_column] = "X"
-        bee_coordinates = bee_row, bee_column
         print(bee_row, bee_column)
 
 
@@ -130,7 +130,7 @@ def start_game():
     if success != 0:
         print(f'Well done for feeding {success} bees!')
     else:
-        print('Bad luck, maybe you can more the bees next time.')
+        print('Bad luck, maybe you can feed more the bees next time.')
 
 
 start_game()
