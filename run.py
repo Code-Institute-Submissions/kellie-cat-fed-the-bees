@@ -1,5 +1,8 @@
 from random import randint
 
+import os
+import sys
+
 import pyfiglet
 
 import colorama
@@ -17,8 +20,9 @@ PLAYER_VISIBLE_HIVE = [[" "] * 8 for i in range(SIZE)]
 
 def print_intro():
     title_art = pyfiglet.figlet_format('FREE THE BEES', font="bubble")
-    print(Fore.YELLOW + (title_art) + Fore.RESET)
-    input("Press enter to start the game...\n")
+    print(Fore.YELLOW + 'Welcome to...\n')
+    print((title_art) + Fore.RESET)
+    input("Press enter to read the game instructions...\n")
     print("In a dystopian time, bees are hungry and can't escape their hive")
     print('You have stumbled across a beehive and want to help')
     print('Try to give the bees nectar without destroying their home')
@@ -36,7 +40,7 @@ def get_player_name():
         player = input("Please tell us your name so the bees can say "
                        "thanks!\n")
         if len(player) >= 2 and not player.isnumeric():
-            print(f'Thanks for helping the bees, {player}!')
+            print(f'Thanks for helping the bees, {player}!\n')
             break
         elif player.isnumeric():
             print("Numbers don't count! Try a name with letters")
@@ -66,7 +70,6 @@ def computer_create_bees(hive):
     for bee in range(NUM_BEES):
         bee_row, bee_column = randint(0, 7), randint(0, 7)
         hive[bee_row][bee_column] = "X"
-        print(bee_row, bee_column)
 
 
 def guess_bee_location(hive):
@@ -98,7 +101,23 @@ def guess_bee_location(hive):
         return guess_row, guess_column
 
 
+def keep_playing(question):
+    """
+    Function to chose whether the player wants to continue or quit the game.
+    """
+    while True:
+        player_input = input(question).upper()
+        if player_input == 'Y':
+            return True
+        elif player_input == 'N':
+            return False
+        else:
+            print("Invalid choice. Please enter 'Y' or 'N'")
+
+
 def start_game():
+    os.system('clear')
+
     success = 0
     computer_create_bees(PLAYER_BEE_HIVE)
 
@@ -106,8 +125,13 @@ def start_game():
 
     get_player_name()
 
+    question = 'Would you like to try to find the bees? Enter Y or N:'
+
     for turn in range(0, TURNS, 1):
         while True:
+            if turn <= TURNS - 1:
+                if not keep_playing(question):
+                    SystemExit()
             print('Guess a bee location on the hive below...')
             print_hive(PLAYER_VISIBLE_HIVE)
             guess_row, guess_column = guess_bee_location(PLAYER_BEE_HIVE)
@@ -128,11 +152,20 @@ def start_game():
                 PLAYER_VISIBLE_HIVE[guess_row][guess_column] = "-"
                 break
             turn += 1
+
     print_hive(PLAYER_VISIBLE_HIVE)
+
     if success != 0:
         print(f'Well done for feeding {success} bees!')
     else:
         print('Bad luck, maybe you can feed more bees next time.')
+
+    question = 'Would you like to play again? Enter Y or N:\n'
+
+    if keep_playing(question) is True:
+        start_game()
+    if not keep_playing:
+        SystemExit()
 
 
 start_game()
