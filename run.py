@@ -19,10 +19,10 @@ def print_hive(hive):
     Displays the hive
     """
     print("  0  1  2  3  4  5  6  7")
-    print("  -----------------------")
+    print(Fore.YELLOW + "  -----------------------" + Fore.RESET)
     row_number = 0
     for row in hive:
-        print(row_number, "| ".join(row))
+        print(row_number, Fore.YELLOW + "| ".join(row) + Fore. RESET)
         row_number += 1
 
 
@@ -84,7 +84,8 @@ def start_game():
                 PLAYER_VISIBLE_HIVE[guess_row][guess_column] = "0"
                 break
             else:
-                print(Fore.RED + "MISS! The bees are still hungry" + Fore.RESET)
+                print(Fore.RED + "MISS! The bees are still hungry" +
+                      Fore.RESET)
                 PLAYER_VISIBLE_HIVE[guess_row][guess_column] = "-"
                 break
             turn += 1
