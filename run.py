@@ -7,11 +7,28 @@ from colorama import Fore, Back, Style
 
 SIZE = 8
 NUM_BEES = 10
+TURNS = 5
 
 # Where computer places their bees randomly
 PLAYER_BEE_HIVE = [[" "] * 8 for i in range(SIZE)]
 # Where players guesses are displayed
 PLAYER_VISIBLE_HIVE = [[" "] * 8 for i in range(SIZE)]
+
+
+def print_intro():
+    title_art = pyfiglet.figlet_format('FREE THE BEES',
+                                       font="bubble")
+    print(title_art)
+    input("Press enter to start the game...\n")
+    print("In a dystopian time, bees are hungry and can't escape their hive")
+    print('You have stumbled across a beehive and want to help')
+    print('Try to give the bees nectar without destroying their home')
+    print(f'The hive is {SIZE} squares long and high')
+    print(f'There are {NUM_BEES} bees to find in each hive')
+    print('Feed as many bees as you can so they can survive!')
+    print('Feed the bees by guessing a coordinate')
+    print('When prompted, input a number for x-axis (horizontal rows) first')
+    print('Then a number for the y-axis (vertical columns)')
 
 
 def print_hive(hive):
@@ -39,7 +56,7 @@ def computer_create_bees(hive):
 
 def guess_bee_location(hive):
     guess_list = []
-    for turn in range(5):
+    for turn in range(TURNS):
         while True:
             try:
                 guess_row = int(input('Guess which row a bee is hiding '
@@ -67,12 +84,11 @@ def guess_bee_location(hive):
 def start_game():
     computer_create_bees(PLAYER_BEE_HIVE)
     print_hive(PLAYER_VISIBLE_HIVE)
-    result = pyfiglet.figlet_format('FREE THE BEES',
-                                    font="bubble")
-    print(result)
-    print('Introduction')
+
+    print_intro()
+
     print('Instructions')
-    for turn in range(0, 5, 1):
+    for turn in range(0, TURNS, 1):
         while True:
             print('Guess a bee location')
             print_hive(PLAYER_VISIBLE_HIVE)
