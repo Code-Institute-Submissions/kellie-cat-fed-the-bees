@@ -38,6 +38,8 @@ def get_player_name():
         if len(player) >= 2 and not player.isnumeric():
             print(f'Thanks for helping the bees, {player}!')
             break
+        elif player.isnumeric():
+            print("Numbers don't count! Try a name with letters")
         elif len(player) <= 2:
             print(f"The bees are friends, {player}, tell them your full name")
         else:
@@ -130,7 +132,7 @@ def start_game():
     if success != 0:
         print(f'Well done for feeding {success} bees!')
     else:
-        print('Bad luck, maybe you can feed more the bees next time.')
+        print('Bad luck, maybe you can feed more bees next time.')
 
 
 start_game()
