@@ -77,7 +77,7 @@ def guess_bee_location(hive):
                 if guess_row in range(0, 8):
                     break
                 elif guess_row not in range(0, 8):
-                    print("That choice is outside the hive. Pick a number from 1-8")
+                    print("That is outside the hive. Pick a number from 1-8")
             except ValueError:
                 print("That's not an appropriate choice, please select a "
                       "valid row by picking a number from 1-8, then enter")
@@ -89,10 +89,10 @@ def guess_bee_location(hive):
                 if guess_column in range(0, 8):
                     break
                 elif guess_column not in range(0, 8):
-                    print("That choice is outside the hive. Pick a number from 1-8")
+                    print("That is outside the hive. Pick a number from 1-8")
             except ValueError:
                 print("That's not an appropriate choice, please select a "
-                      "valid row by picking a number from 1-8, then enter")
+                      "valid column by picking a number from 1-8, then enter")
         return guess_row, guess_column
 
 
@@ -116,7 +116,7 @@ def start_game():
                 print(Fore.YELLOW + "You guessed that one already, have "
                       "another try." + Fore.RESET)
             elif PLAYER_BEE_HIVE[guess_row][guess_column] == "X":
-                print(Fore.GREEN + "You fed the bee!" + Fore.RESET)
+                print(Fore.GREEN + "SUCCESS! You fed a bee!" + Fore.RESET)
                 PLAYER_VISIBLE_HIVE[guess_row][guess_column] = "0"
                 success += 1
                 break
