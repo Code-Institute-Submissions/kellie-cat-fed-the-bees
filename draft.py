@@ -18,18 +18,6 @@ class GameHive:
     def __init__(self, hive):
         self.hive = hive
 
-    def print_hive(self):
-        """
-        Prints the hive
-        """
-        print("  1   2   3   4   5   6   7   8")
-        print(Fore.YELLOW + "  -------------------------------" + Fore.RESET)
-        row_number = 1
-        for row in self.hive:
-            print(str(row_number) + " " + Fore.YELLOW + " | ".join(row) +
-                  Fore.RESET)
-            row_number += 1
-
     def get_player_name(self):
         """
         Asks for player name and validates it
@@ -48,10 +36,24 @@ class GameHive:
                 print("That name is not valid, please enter a name with letters,"
                       " or characters, bees don't like strangers!")
 
+    def print_hive(self):
+        """
+        Prints the hive
+        """
+        print("  1   2   3   4   5   6   7   8")
+        print(Fore.YELLOW + "  -------------------------------" + Fore.RESET)
+        row_number = 1
+        for row in self.hive:
+            print(str(row_number) + " " + Fore.YELLOW + " | ".join(row) +
+                  Fore.RESET)
+            row_number += 1
+
 
 class Bees:
     def __init__(self, hive):
         self.hive = hive
+        self.bee_row = bee_row
+        self.bee_column = bee_column
 
     def create_bees(self):
         """
@@ -68,33 +70,47 @@ class Bees:
         """
         Asks for player input to guess bee location and validates it
         """
-        try:
-            bee_row = int(input(Fore.CYAN + 'Guess which row a bee '
-                                'is hiding on:\n' + Fore.RESET)) - 1
-            while bee_row not in range(0, 8):
-                print("That's not in the hive. Pick a number from 1-8")
+        while True:
+            try:
                 bee_row = int(input(Fore.CYAN + 'Guess which row a bee '
-                                'is hiding on:\n' + Fore.RESET)) - 1
+                                    'is hiding on:\n' + Fore.RESET)) - 1
+                if bee_row in range(0, 8):
+                    break
+                if bee_row not in range(0, 8):
+                    print("That's not in the hive. Pick a number from 1-8")
+            except ValueError and KeyError:
+                print("That's not an appropriate choice, it gave an error:\n"
+                      "Please select a valid row by picking a number from"
+                      "1-8, then enter")
 
-            bee_column = int(input(Fore.CYAN + 'Guess which column a bee'
-                                    ' is hiding on:\n' + Fore.RESET)) - 1
-            while bee_column not in range(0, 8):
-                print("That is outside the hive. Pick a number from 1-8")
+        while True:
+            try:
                 bee_column = int(input(Fore.CYAN + 'Guess which column a bee'
-                                    ' is hiding on:\n' + Fore.RESET)) - 1
-            return bee_row, bee_column
-        except ValueError or KeyError:
-            print("That's not an appropriate choice, it gave an error.\n"
-                  "Please select a valid column by picking a number from "
-                  "1-8, then enter")
-            return self.guess_bee_location()
+                                       ' is hiding on:\n' + Fore.RESET)) - 1
+                if bee_column in range(0, 8):
+                    break
+                if bee_column not in range(0, 8):
+                    print("That is outside the hive. Pick a number from 1-8")
+            except ValueError as e:
+                print("That's not an appropriate choice, it gave an error:\n"
+                      "Please select a valid column by picking a number from "
+                      "1-8, then enter")
+        return bee_row, bee_column
+
+    def count_fed_bees(self):
+        success = 0
+        for row in self.hive:
+            for column in row:
+                if column == 'X':
+                    success += 1
+        return success
 
 
 def play_game():
     """
     """
     size = 8
-    success = 0
+    turns = 0
 
     miss = "\U00002B21"
     found_bee = "\U0001F41D"
@@ -106,39 +122,43 @@ def play_game():
     Bees.create_bees(player_bee_hive)
 
     GameHive.get_player_name(player_bee_hive)
-    GameHive.print_hive(player_bee_hive)
 
-    for turn in range(0, TURNS):
-        while True:
-            if turn <= TURNS - 1:
-                print('Guess a bee location on the hive below...')
-                GameHive.print_hive(player_visible_hive)
-                bee_row, bee_column = Bees.guess_bee_location(object)
-            if player_bee_hive.hive[bee_row][bee_column] == miss:
-                print(Fore.YELLOW + "You guessed that one already, have "
-                      "another try." + Fore.RESET)
-            elif player_visible_hive.hive[bee_row][bee_column] == found_bee:
-                print(Fore.YELLOW + "You guessed that one already, have "
-                      "another try." + Fore.RESET)
-            elif player_bee_hive.hive[bee_row][bee_column] == "X":
-                print(Fore.GREEN + "SUCCESS! You fed a bee!" + Fore.RESET)
-                success += 1
-                break
-            else:
-                print(Fore.RED + "MISS! The bees are still hungry" +
-                      Fore.RESET)
-                Bees.guess_bee_location(player_visible_hive) == miss
-                break
-            turn += 1
+    while turns in range(0, TURNS):
+        print('Guess a bee location on the hive below...')
+        GameHive.print_hive(player_visible_hive)
+        Bees.guess_bee_location(player_visible_hive)
+    while player_bee_hive.hive[bee_row][bee_column] == miss:
+        print(Fore.YELLOW + "You guessed that one already, have "
+                "another try." + Fore.RESET)
+        bee_row, bee_column = Bees.guess_bee_location(object)
+    if player_visible_hive.hive[bee_row][bee_column] == 'X':
+        print(Fore.YELLOW + "You guessed that one already, have "
+                "another try." + Fore.RESET)
+    elif player_bee_hive.hive[bee_row][bee_column] == 'X':
+        print(Fore.GREEN + "SUCCESS! You fed a bee!" + Fore.RESET)
+    else:
+        print(Fore.RED + "MISS! The bees are still hungry" +
+                Fore.RESET)
+        player_visible_hive.hive[bee_row][bee_column] == miss
+    turns += 1
 
     GameHive.print_hive(player_visible_hive)
 
+    if Bees.count_fed_bees(player_visible_hive) == 5:
+        print('Well done for feeding all the bees!')
+    success = Bees.count_fed_bees(player_visible_hive)
     if success != 0:
         print(f'Well done for feeding {success} bees!')
     else:
         print('Bad luck, maybe you can feed more bees next time.')
 
 
+def finish_game():
+    SystemExit
+
+
+finish_game()
+
+
 if __name__ == '__main__':
     play_game()
-    
