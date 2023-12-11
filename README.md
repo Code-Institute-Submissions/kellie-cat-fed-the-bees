@@ -5,7 +5,7 @@ Bees are crucial to the planet as we know it. Colony Collapse Disorder was first
 
 ![Screenshot of Free the Bees]( "Free the Bees on Am I Responsive")
 
-[View Free the Bees on Github Pages](https://kellie-cat.github.io/fed-the-bees/)
+[View Free the Bees Live Site](heroku)
 
 ![GitHub contributors]()
 ![GitHub top language]()
@@ -52,21 +52,22 @@ Bees are crucial to the planet as we know it. Colony Collapse Disorder was first
 
 ## User Experience (UX)
 
-Free the Bees is a command line game played on one screen with elements that update to progress the game and give the user feedback. It was designed to be played on... screen size? Mention mobile-first???
+Free the Bees is a command line game played on one screen with elements that update to progress the game and give the user feedback. It is deployed to Heroku to improve accessibility.
 
 ### Key information for the site
 
-- A header with a title introducing the page and a logo.
-- A welcome page with instructions for the new user to commence playing.
-- A pop up at the end to give a final score and feedback and invite the user to refresh the game to play again.
-- Links to find out more about me include my LinkedIn and GitHub profiles which open in a new tab.
+- A Title Art welcomes the new user to the game and invites them to commence playing.
+- A back story and instructions draw the player in and asks them for their name at the end - input required is highlighted by a different colour.
+- The users guess where they think they can help the bees, and they are rewarded with a unicode bee if they are successful, or a unicode empty hexagon commisserates if they didn't find a bee.
+- At each turn, the user confirms they would like to keep playing, so they don't get stuck in a long loop.
+- Finally, their score is displayed and the user is invited to refresh the game to play again or exit the program.
 
 #### Goals
 
-- To have an interactive site that is responsive for screen sizes from handheld devices to larger monitors.
-- To have a site that is intuitive and accessible both visually and for people using screen readers.
+- To have a fun game.
+- To have an interactive site that is usable on handheld devices to larger monitors.
+- To have a site that is intuitive and accessible both visually and logistically.
 - To highlight the importance and the plight of bees in nature.
-- To provide resources to find out more about me and other projects.
 
 #### First Time User Goals
 
@@ -84,7 +85,8 @@ Free the Bees is a command line game played on one screen with elements that upd
 ### Colour Scheme
 
 Python has a limited amount of colours and styles in the Colorama module.
-The obvious choice is a use of Yellow and Black to symbolise the bees and I choose Red text to symbolise a hangry Bee when they are not fed, and Green text to celebrate a successfully fed bee to encourage the user to keep going.
+The obvious choice is a use of Yellow and Black to symbolise the bees and I choose Red text to symbolise the feedback for a hangry Bee when they are not fed, and Green text to celebrate a successfully fed bee to encourage the user to keep going.
+When user input is needed, the text turns Cyan.
 
 ### Typography
 
@@ -92,12 +94,16 @@ The obvious choice is a use of Yellow and Black to symbolise the bees and I choo
 
 ![Screenshot of Welcome Art]( "Screenshot of fonts")
 
-### Wireframes
+### Lucidchart
 
-![A screenshot of Balsamiq wireframe trial for PP2](docs/balsamiq-wireframe-dental-quiz.png "Balsamiq wireframe trial for PP2")
-Balsamiq wireframes were trialed to plan the project layout.
+- I found the logic of this project really difficult and tangled myself in a number of knots.
+- Lucidchart had a number of different drafts.
 
-I ended up changing the colours and layout to improve the aesthetics and usabilty of the site on mobile through to large monitor screen sizes and orientations. I realised there was no point in trying to force content into a small area.
+![Lucidchart Draft 1](docs/flowcharts/Lucidchart-pp3-draft.png)
+Lucidchart Attempt 1 of Many 
+
+- As I ended up simplifying the game so I could get my head around it, it changed quite a bit.
+
 
 ## Features
 
