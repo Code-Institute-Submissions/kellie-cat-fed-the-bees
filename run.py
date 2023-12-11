@@ -1,3 +1,6 @@
+import unicodedata
+from unicodedata import normalize
+
 from random import randint
 
 import os
@@ -61,11 +64,12 @@ def print_hive(hive):
     """
     Prints the hive
     """
-    print("  1  2  3  4  5  6  7  8")
-    print(Fore.YELLOW + "  -----------------------" + Fore.RESET)
+    print("  1   2   3   4   5   6   7   8")
+    print(Fore.YELLOW + "  -------------------------------" + Fore.RESET)
     row_number = 1
     for row in hive:
-        print(row_number, Fore.YELLOW + "| ".join(row) + Fore.RESET)
+        print(str(row_number) + " " + Fore.YELLOW + " | ".join(row) +
+              Fore.RESET)
         row_number += 1
 
 
@@ -158,6 +162,9 @@ def play_game():
     """
     clear_console()
 
+    miss = "\U00002B21"
+    found_bee = "\U0001F41D"
+
     success = 0
     computer_create_bees(PLAYER_BEE_HIVE)
 
@@ -175,21 +182,22 @@ def play_game():
             print('Guess a bee location on the hive below...')
             print_hive(PLAYER_VISIBLE_HIVE)
             guess_row, guess_column = guess_bee_location(PLAYER_BEE_HIVE)
-            if PLAYER_VISIBLE_HIVE[guess_row][guess_column] == "-":
+            if PLAYER_VISIBLE_HIVE[guess_row][guess_column] == miss:
                 print(Fore.YELLOW + "You guessed that one already, have "
                       "another try." + Fore.RESET)
-            elif PLAYER_VISIBLE_HIVE[guess_row][guess_column] == "0":
+            elif (PLAYER_VISIBLE_HIVE[guess_row][guess_column] ==
+                  found_bee.lstrip()):
                 print(Fore.YELLOW + "You guessed that one already, have "
                       "another try." + Fore.RESET)
             elif PLAYER_BEE_HIVE[guess_row][guess_column] == "X":
                 print(Fore.GREEN + "SUCCESS! You fed a bee!" + Fore.RESET)
-                PLAYER_VISIBLE_HIVE[guess_row][guess_column] = "0"
+                PLAYER_VISIBLE_HIVE[guess_row][guess_column] = found_bee.lstrip()
                 success += 1
                 break
             else:
                 print(Fore.RED + "MISS! The bees are still hungry" +
                       Fore.RESET)
-                PLAYER_VISIBLE_HIVE[guess_row][guess_column] = "-"
+                PLAYER_VISIBLE_HIVE[guess_row][guess_column] = miss
                 break
             turn += 1
 
