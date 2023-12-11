@@ -79,7 +79,9 @@ class Bees:
             bee_column = int(input(Fore.CYAN + 'Guess which column a bee'
                                     ' is hiding on:\n' + Fore.RESET)) - 1
             while bee_column not in range(0, 8):
-                print("That is outside the hive. Pick a number from 1-8") 
+                print("That is outside the hive. Pick a number from 1-8")
+                bee_column = int(input(Fore.CYAN + 'Guess which column a bee'
+                                    ' is hiding on:\n' + Fore.RESET)) - 1
             return bee_row, bee_column
         except ValueError or KeyError:
             print("That's not an appropriate choice, it gave an error.\n"
@@ -111,16 +113,15 @@ def play_game():
             if turn <= TURNS - 1:
                 print('Guess a bee location on the hive below...')
                 GameHive.print_hive(player_visible_hive)
-                guess_row, guess_column = Bees.guess_bee_location(object)
-            if Bees.guess_bee_location(player_bee_hive) == miss:
+                bee_row, bee_column = Bees.guess_bee_location(object)
+            if player_bee_hive.hive[bee_row][bee_column] == miss:
                 print(Fore.YELLOW + "You guessed that one already, have "
                       "another try." + Fore.RESET)
-            elif Bees.guess_bee_location(player_bee_hive) == found_bee:
+            elif player_visible_hive.hive[bee_row][bee_column] == found_bee:
                 print(Fore.YELLOW + "You guessed that one already, have "
                       "another try." + Fore.RESET)
-            elif Bees.guess_bee_location(player_bee_hive) == "X":
+            elif player_bee_hive.hive[bee_row][bee_column] == "X":
                 print(Fore.GREEN + "SUCCESS! You fed a bee!" + Fore.RESET)
-                Bees.guess_bee_location(player_visible_hive) == found_bee
                 success += 1
                 break
             else:
@@ -140,3 +141,4 @@ def play_game():
 
 if __name__ == '__main__':
     play_game()
+    
