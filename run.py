@@ -11,6 +11,8 @@ import pyfiglet
 import colorama
 from colorama import Fore, Back
 
+import time
+
 SIZE = 8
 NUM_BEES = 10
 TURNS = 5
@@ -46,8 +48,8 @@ def get_player_name():
     Asks for player name and validates it
     """
     while True:
-        player = input("Please tell us your name so the bees can say "
-                       "thanks!\n")
+        player = input(Fore.CYAN + "Please tell us your name so the bees"
+                       " can say thanks!\n" + Fore.RESET)
         if len(player) >= 2 and not player.isnumeric():
             print(f'Thanks for helping the bees, {player}!\n')
             break
@@ -90,8 +92,8 @@ def guess_bee_location(hive):
     if turn in range(TURNS):
         while True:
             try:
-                guess_row = int(input('Guess which row a bee is hiding '
-                                      'on:\n')) - 1
+                guess_row = int(input(Fore.CYAN + 'Guess which row a bee is'
+                                      ' hiding on:\n' + Fore.RESET)) - 1
                 if guess_row in range(0, 8):
                     break
                 elif guess_row not in range(0, 8):
@@ -103,8 +105,8 @@ def guess_bee_location(hive):
 
         while True:
             try:
-                guess_column = int(input('Guess which column a bee is hiding '
-                                         'on:\n')) - 1
+                guess_column = int(input(Fore.CYAN + 'Guess which column a bee'
+                                         ' is hiding on:\n' + Fore.RESET)) - 1
                 if guess_column in range(0, 8):
                     break
                 elif guess_column not in range(0, 8):
@@ -121,7 +123,7 @@ def keep_playing(question):
     Chose whether the player wants to continue or quit the game.
     """
     while True:
-        player_input = input(question).upper()
+        player_input = input(Fore.CYAN + (question) + Fore.RESET).upper()
         if player_input == 'Y':
             return True
         elif player_input == 'N':
@@ -149,9 +151,12 @@ def finish_game():
     if keep_playing(question) is True:
         os.execv(sys.executable, ['python'] + sys.argv)
         play_game()
-    if not keep_playing:
+    elif keep_playing(question) is False:
         print('Bye for now. Come back again soon to help more bees!')
         SystemExit()
+    else:
+        print('Something went wrong, reloading game...')
+        play_game()
 
 
 def play_game():
