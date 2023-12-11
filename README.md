@@ -2,6 +2,7 @@
 
 Free the Bees is a command line game built in Python designed based on the idea of Battleships... but for people who would prefer not to think about explosions. A simple yellow display brightens peoples day and they can enjoy the fun of finding the bees and feeding them.
 Bees are crucial to the planet as we know it. Colony Collapse Disorder was first seen in Southern and Western Europe in 1998, and it was named in 2006 in North America. It is now a world wide occurance that we still don't fully understand.
+This game aims to provide entertainment while highlighting the importance of these very clever insects.
 
 ![Screenshot of Free the Bees]( "Free the Bees on Am I Responsive")
 
@@ -52,7 +53,7 @@ Bees are crucial to the planet as we know it. Colony Collapse Disorder was first
 
 ## User Experience (UX)
 
-Free the Bees is a command line game played on one screen with elements that update to progress the game and give the user feedback. It is deployed to Heroku to improve accessibility.
+Free the Bees is a command line game played on one screen with elements that update to progress the game and give the user feedback. It is deployed to Heroku to ensure accessibility for users.
 
 ### Key information for the site
 
@@ -65,8 +66,8 @@ Free the Bees is a command line game played on one screen with elements that upd
 #### Goals
 
 - To have a fun game.
-- To have an interactive site that is usable on handheld devices to larger monitors.
-- To have a site that is intuitive and accessible both visually and logistically.
+- To have a program that runs smoothly and is accessible both visually and logistically.
+- To prevent the game from crashing due to user input.
 - To highlight the importance and the plight of bees in nature.
 
 #### First Time User Goals
@@ -74,11 +75,13 @@ Free the Bees is a command line game played on one screen with elements that upd
 - I want to play a game that is intuitive and instructions are easy to follow.
 - I want to view the information in an aesthetically pleasing and intuitive way.
 - I want to navigate through the game easily and get clear feedback.
+- I want a game that does not crash.
 
 #### Returning Visitor Goals
 
 - I want familiarity that improves UX by creating an feeling of ease of use.
-- I want to know how to contact the page to ask any questions I may have.
+- I want a program that offers the chance to leave if I need to.
+- I want a game that does not crash.
 
 ## Design
 
@@ -86,7 +89,7 @@ Free the Bees is a command line game played on one screen with elements that upd
 
 Python has a limited amount of colours and styles in the Colorama module.
 The obvious choice is a use of Yellow and Black to symbolise the bees and I choose Red text to symbolise the feedback for a hangry Bee when they are not fed, and Green text to celebrate a successfully fed bee to encourage the user to keep going.
-When user input is needed, the text turns Cyan.
+When user input is needed, the text turns Cyan to alert the player that their interaction is needed.
 
 ### Typography
 
@@ -104,6 +107,9 @@ Lucidchart Attempt 1 of Many
 
 - As I ended up simplifying the game so I could get my head around it, it changed quite a bit.
 
+![Lucidchart Edited version](docs/flowcharts/Lucidchart-pp3-edited.png)
+Lucidchart Edited Version
+
 
 ## Features
 
@@ -111,29 +117,21 @@ Lucidchart Attempt 1 of Many
 
 The game
 
-#### The Welcome Page
+#### The Title Art
 
-![A screenshot of the home page](docs/pp2-welcome-page-laptop.png "Screenshot of the home page")
+![A screenshot of the Title Art](docs/pp2-welcome-page-laptop.png "Screenshot of the Title Art")
 
 - When users first load the page, the home page is displayed to
-  - welcome the user and introduce the game
-  - explain the purpose of the game
-  - provide instructions
-  - begin the game with a start button
-  - the header and footer are a constant throughout, with Font Awesome icons
-  - the header has a tooth, setting the theme for the quiz
-  - and the foooter has links to LinkedIn and GitHub, which open in a new tab, incase anyone would like to find out more about me
+  - welcome the user and introduce the name of the game
 
-![A screenshot of the header on a mobile device](docs/pp2-header-mobile.png "Screenshot of the header on a mobile device")
 
-![A screenshot of the footer on a mobile device](docs/pp2-footer-mobile.png "Screenshot of the footer on a mobile device")
+#### The Backstory and Instructions
 
-#### The Quiz Page
+- Once the user has confirmed they are ready, the backstory of the game is revealed with instructions on how to play. 
+- The player is asked to enter their name and this is validated before moving on.
+- Then the player is asked to confirm they would like to proceed. This happens at every guess, should the player need to stop the game before it is finished.
 
-Again the header and footer appear, familiar to the user.
-On this page, the header is also an anchor tag, linking the user back to the home page, should they need to stop the game before it is finished.
-
-![A screenshot of the quiz page](docs/pp2-quiz-page-laptop.png "Screenshot of the quiz page")
+![A screenshot of the backstory](docs/pp2-quiz-page-laptop.png "Screenshot of the backstory")
 
 The majority of the page is the Game Area, containing:
 

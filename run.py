@@ -13,6 +13,7 @@ from colorama import Fore
 SIZE = 8
 NUM_BEES = 10
 TURNS = 5
+PLAYER = ''
 
 # Where computer places their bees randomly
 PLAYER_BEE_HIVE = [[" "] * 8 for i in range(SIZE)]
@@ -45,18 +46,19 @@ def get_player_name():
     Asks for player name and validates it
     """
     while True:
-        player = input(Fore.CYAN + "Please tell us your name so the bees"
+        PLAYER = input(Fore.CYAN + "Please tell us your name so the bees"
                        " can say thanks!\n" + Fore.RESET)
-        if len(player) >= 2 and not player.isnumeric():
-            print(f'Thanks for helping the bees, {player}!\n')
+        if len(PLAYER) >= 2 and not PLAYER.isnumeric():
+            print(f'Thanks for helping the bees, {PLAYER}!\n')
             break
-        if player.isnumeric():
+        if PLAYER.isnumeric():
             print("Numbers don't count! Try a name with letters")
-        elif len(player) <= 2:
-            print(f"The bees are friends, {player}, tell them your full name")
+        elif len(PLAYER) <= 2:
+            print(f"The bees are friends, {PLAYER}, tell them your full name")
         else:
             print("That name is not valid, please enter a name with letters,"
                   " or characters, bees don't like strangers!")
+    return PLAYER
 
 
 def print_hive(hive):
@@ -205,9 +207,10 @@ def play_game():
     print_hive(PLAYER_VISIBLE_HIVE)
 
     if success != 0:
-        print(f'Well done for feeding {success} bees!')
+        print(f'Well done for feeding {success} bees, {PLAYER}!')
     else:
-        print('Bad luck, maybe you can feed more bees next time.')
+        print(f'Bad luck, {PLAYER}, maybe you can feed more bees'
+              ' next time.')
 
     finish_game()
 
