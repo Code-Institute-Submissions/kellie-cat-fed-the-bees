@@ -19,6 +19,9 @@ PLAYER_VISIBLE_HIVE = [[" "] * 8 for i in range(SIZE)]
 
 
 def print_intro():
+    """
+    Displays title_art and game instructions
+    """
     title_art = pyfiglet.figlet_format('FREE THE BEES', font="bubble")
     print(Fore.YELLOW + 'Welcome to...\n')
     print((title_art) + Fore.RESET)
@@ -36,6 +39,9 @@ def print_intro():
 
 
 def get_player_name():
+    """
+    Asks for player name and validates it
+    """
     while True:
         player = input("Please tell us your name so the bees can say "
                        "thanks!\n")
@@ -53,7 +59,7 @@ def get_player_name():
 
 def print_hive(hive):
     """
-    Displays the hive
+    Prints the hive
     """
     print("  1  2  3  4  5  6  7  8")
     print(Fore.YELLOW + "  -----------------------" + Fore.RESET)
@@ -73,6 +79,9 @@ def computer_create_bees(hive):
 
 
 def guess_bee_location(hive):
+    """
+    Asks for player input to guess bee location and validates it
+    """
     turn = 0
     if turn in range(TURNS):
         while True:
@@ -105,7 +114,7 @@ def guess_bee_location(hive):
 
 def keep_playing(question):
     """
-    Function to chose whether the player wants to continue or quit the game.
+    Chose whether the player wants to continue or quit the game.
     """
     while True:
         player_input = input(question).upper()
@@ -118,13 +127,35 @@ def keep_playing(question):
 
 
 def clear_console():
+    """
+    Removes 1st line in windows and others
+    """
     command = 'clear'
     if os.name in ('nt', 'dos'):  # If computer is running windows use cls
         command = 'cls'
     os.system(command)
 
 
+def finish_game():
+    """
+    Reset the game or exit
+    """
+    question = 'Would you like to play again? Enter Y or N:\n'
+
+    if keep_playing(question) is True:
+        os.execv(sys.executable, ['python'] + sys.argv)
+        play_game()
+    if not keep_playing:
+        SystemExit()
+
+
 def play_game():
+    """
+    Runs game, clears 1st line, randomly creates the coordinates for hidden
+    bees and places them in hidden hive, gets player name, asks if player
+    wants to continue game, takes a turn, gives feedback, prints the hive
+    with gueses and finishes game
+    """
     clear_console()
 
     success = 0
@@ -169,13 +200,7 @@ def play_game():
     else:
         print('Bad luck, maybe you can feed more bees next time.')
 
-    question = 'Would you like to play again? Enter Y or N:\n'
-
-    if keep_playing(question) is True:
-        os.execv(sys.executable, ['python'] + sys.argv)
-        play_game()
-    if not keep_playing:
-        SystemExit()
+    finish_game()
 
 
 play_game()
