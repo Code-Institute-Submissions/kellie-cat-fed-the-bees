@@ -150,6 +150,7 @@ def finish_game():
         os.execv(sys.executable, ['python'] + sys.argv)
         play_game()
     if not keep_playing:
+        print('Bye for now. Come back again soon to help more bees!')
         SystemExit()
 
 
@@ -178,6 +179,8 @@ def play_game():
         while True:
             if turn <= TURNS - 1:
                 if not keep_playing(question):
+                    print('Bye for now. Please come back soon to help free '
+                          'the bees!')
                     sys.exit()
             print('Guess a bee location on the hive below...')
             print_hive(PLAYER_VISIBLE_HIVE)
