@@ -32,7 +32,7 @@ def print_intro():
     print(f'You only have {TURNS} drops of nectar to give them')
     print('Feed the bees by guessing a coordinate you think they are at')
     print('When prompted, input a number for x-axis (horizontal rows) first')
-    print('Then a number for the y-axis (vertical columns)')
+    print('Then a number for the y-axis (vertical columns)\n')
 
 
 def get_player_name():
@@ -83,9 +83,10 @@ def guess_bee_location(hive):
                     break
                 elif guess_row not in range(0, 8):
                     print("That is outside the hive. Pick a number from 1-8")
-            except ValueError:
-                print("That's not an appropriate choice, please select a "
-                      "valid row by picking a number from 1-8, then enter")
+            except ValueError as e:
+                print("That's not an appropriate choice, it gave an error: "
+                      f"{e}\n Please select a valid row by picking a number "
+                      " from 1-8, then enter")
 
         while True:
             try:
@@ -95,9 +96,10 @@ def guess_bee_location(hive):
                     break
                 elif guess_column not in range(0, 8):
                     print("That is outside the hive. Pick a number from 1-8")
-            except ValueError:
-                print("That's not an appropriate choice, please select a "
-                      "valid column by picking a number from 1-8, then enter")
+            except ValueError as e:
+                print("That's not an appropriate choice, it gave an error: "
+                      f"{e}\n Please select a valid column by picking a number"
+                      " from 1-8, then enter")
         return guess_row, guess_column
 
 
@@ -115,8 +117,15 @@ def keep_playing(question):
             print("Invalid choice. Please enter 'Y' or 'N'")
 
 
-def start_game():
-    os.system('clear')
+def clear_console():
+    command = 'clear'
+    if os.name in ('nt', 'dos'):  # If computer is running windows use cls
+        command = 'cls'
+    os.system(command)
+
+
+def play_game():
+    clear_console()
 
     success = 0
     computer_create_bees(PLAYER_BEE_HIVE)
@@ -125,13 +134,13 @@ def start_game():
 
     get_player_name()
 
-    question = 'Would you like to try to find the bees? Enter Y or N:'
+    question = 'Would you like to try to find the bees? Enter Y or N:\n'
 
     for turn in range(0, TURNS, 1):
         while True:
             if turn <= TURNS - 1:
                 if not keep_playing(question):
-                    SystemExit()
+                    sys.exit()
             print('Guess a bee location on the hive below...')
             print_hive(PLAYER_VISIBLE_HIVE)
             guess_row, guess_column = guess_bee_location(PLAYER_BEE_HIVE)
@@ -163,9 +172,10 @@ def start_game():
     question = 'Would you like to play again? Enter Y or N:\n'
 
     if keep_playing(question) is True:
-        start_game()
+        os.execv(sys.executable, ['python'] + sys.argv)
+        play_game()
     if not keep_playing:
         SystemExit()
 
 
-start_game()
+play_game()
