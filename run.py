@@ -150,7 +150,7 @@ def finish_game():
         play_game()
     elif keep_playing(question) is False:
         print('Bye for now. Come back again soon to help more bees!')
-        SystemExit()
+        sys.exit()
 
 
 def play_game():

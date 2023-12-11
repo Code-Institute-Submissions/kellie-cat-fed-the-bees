@@ -63,7 +63,7 @@ class Bees:
             self.bee_row, self.bee_column = randint(0, 7), randint(0, 7)
             while self.hive[self.bee_row][self.bee_column] == "X":
                 self.bee_row, self.bee_column = randint(0, 7), randint(0, 7)
-            self.hive[self.bee_row][self.bee_column] == "X"
+            self.hive[self.bee_row][self.bee_column] = "X"
         return self.hive
 
     def guess_bee_location(self):
@@ -86,7 +86,7 @@ class Bees:
         while True:
             try:
                 bee_column = int(input(Fore.CYAN + 'Guess which column a bee'
-                                       ' is hiding on:\n' + Fore.RESET)) - 1
+                                    ' is hiding on:\n' + Fore.RESET)) - 1
                 if bee_column in range(0, 8):
                     break
                 if bee_column not in range(0, 8):
