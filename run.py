@@ -1,5 +1,4 @@
 import unicodedata
-from unicodedata import normalize
 
 from random import randint
 
@@ -9,9 +8,7 @@ import sys
 import pyfiglet
 
 import colorama
-from colorama import Fore, Back
-
-import time
+from colorama import Fore
 
 SIZE = 8
 NUM_BEES = 10
@@ -53,7 +50,7 @@ def get_player_name():
         if len(player) >= 2 and not player.isnumeric():
             print(f'Thanks for helping the bees, {player}!\n')
             break
-        elif player.isnumeric():
+        if player.isnumeric():
             print("Numbers don't count! Try a name with letters")
         elif len(player) <= 2:
             print(f"The bees are friends, {player}, tell them your full name")
@@ -79,7 +76,7 @@ def computer_create_bees(hive):
     """
     Loop for computer to generate random coordinates for bees to find
     """
-    for bee in range(NUM_BEES):
+    for i in range(NUM_BEES):
         bee_row, bee_column = randint(0, 7), randint(0, 7)
         hive[bee_row][bee_column] = "X"
 
@@ -96,7 +93,7 @@ def guess_bee_location(hive):
                                       ' hiding on:\n' + Fore.RESET)) - 1
                 if guess_row in range(0, 8):
                     break
-                elif guess_row not in range(0, 8):
+                if guess_row not in range(0, 8):
                     print("That is outside the hive. Pick a number from 1-8")
             except ValueError as e:
                 print("That's not an appropriate choice, it gave an error: "
@@ -109,7 +106,7 @@ def guess_bee_location(hive):
                                          ' is hiding on:\n' + Fore.RESET)) - 1
                 if guess_column in range(0, 8):
                     break
-                elif guess_column not in range(0, 8):
+                if guess_column not in range(0, 8):
                     print("That is outside the hive. Pick a number from 1-8")
             except ValueError as e:
                 print("That's not an appropriate choice, it gave an error: "
@@ -126,7 +123,7 @@ def keep_playing(question):
         player_input = input(Fore.CYAN + (question) + Fore.RESET).upper()
         if player_input == 'Y':
             return True
-        elif player_input == 'N':
+        if player_input == 'N':
             return False
         else:
             print("Invalid choice. Please enter 'Y' or 'N'")
@@ -154,9 +151,6 @@ def finish_game():
     elif keep_playing(question) is False:
         print('Bye for now. Come back again soon to help more bees!')
         SystemExit()
-    else:
-        print('Something went wrong, reloading game...')
-        play_game()
 
 
 def play_game():
@@ -193,13 +187,12 @@ def play_game():
             if PLAYER_VISIBLE_HIVE[guess_row][guess_column] == miss:
                 print(Fore.YELLOW + "You guessed that one already, have "
                       "another try." + Fore.RESET)
-            elif (PLAYER_VISIBLE_HIVE[guess_row][guess_column] ==
-                  found_bee.lstrip()):
+            elif PLAYER_VISIBLE_HIVE[guess_row][guess_column] == found_bee:
                 print(Fore.YELLOW + "You guessed that one already, have "
                       "another try." + Fore.RESET)
             elif PLAYER_BEE_HIVE[guess_row][guess_column] == "X":
                 print(Fore.GREEN + "SUCCESS! You fed a bee!" + Fore.RESET)
-                PLAYER_VISIBLE_HIVE[guess_row][guess_column] = found_bee.lstrip()
+                PLAYER_VISIBLE_HIVE[guess_row][guess_column] = found_bee
                 success += 1
                 break
             else:
