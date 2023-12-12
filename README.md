@@ -115,11 +115,11 @@ Lucidchart Edited Version
 
 #### The Title Art
 
+- When users first load the page, the Title Art is displayed to
+  - welcome the user and 
+  - introduce the name of the game
+
 ![A screenshot of the Title Art](docs/screenshots/pp3-title-art.png "Screenshot of the Title Art")
-
-- When users first load the page, the home page is displayed to
-  - welcome the user and introduce the name of the game
-
 
 #### The Backstory and Instructions
 
@@ -161,20 +161,18 @@ If the player enters an invalid answer
 - they have a chance to retry without crashing the game
 - and they receive some feedback on how to make a valid guess
 
-![A screenshot of invalid input](docs/screenshots/pp3-invalid-guess-nan.png "Screenshot of Not a Number")
+![A screenshot of invalid input](docs/screenshots/pp3-row-validation.png "Screenshot of row validation")
 
-![A screenshot of invalid input](docs/screenshots/pp3-invalid-guess-number.png "Screenshot of outside hive")
+![A screenshot of invalid input](docs/screenshots/pp3-column-validation.png "Screenshot of column validation")
 
 ### Future Implementations
 
-This project meets the requirements and is ready to help many people learn about cavity prevention.
+This project meets the requirements and is ready to play without issues.
 If more resources opened up, I could add some additional features:
 
-1. A progress bar displayed so the player could tell how many questions they had to go.
-2. An 'easy', 'moderate' and 'difficult' mode would be helpful to make the game even more useful for people of different knowledge levels. This could be achieved by creating another document for holding the data and separate arrays for easy, moderate and difficult questions. Hints could also be displayed in the Incorrect Answer pop up.
-3. Scrambling the order of the answers would also make the game more helpful for repeat users. This could be achieved by calling the answers in a different way and again shuffling the order with the Fisher Yates Method.
+1. It would be interesting to have the time to work with more features such as the background image, placing the terminal centered in the screen and so on.
+2. Varying the mode from 'easy' to 'difficult' would be helpful to make the game even more useful for people of interest levels. This could be achieved by creating a class for the Hive and asking the using to input a SIZE between say 5 and 15.
 4. Adding game sounds and more exciting animations would increase interest and novelty.
-5. Providing a link to sites such as [The Irish Dental Health Foundation](https://www.dentalhealth.ie/) or [Brush My Teeth](https://brushmyteeth.ie/) to signpost the users to more educational resources.
 
 ### Accessibility
 
