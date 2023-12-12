@@ -102,12 +102,12 @@ When user input is needed, the text turns Cyan to alert the player that their in
 - I found the logic of this project really difficult and tangled myself in a number of knots.
 - Lucidchart had a number of different drafts.
 
-![Lucidchart Draft 1](docs/flowcharts/Lucidchart-pp3-draft.png)
+![Lucidchart Draft 1](docs/flowcharts/lucidchart-pp3-draft.png)
 Lucidchart Attempt 1 of Many 
 
 - As I ended up simplifying the game so I could get my head around it, it changed quite a bit.
 
-![Lucidchart Edited version](docs/flowcharts/Lucidchart-pp3-edited.png)
+![Lucidchart Edited version](docs/flowcharts/lucidchart-pp3-edited.png)
 Lucidchart Edited Version
 
 
