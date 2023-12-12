@@ -6,7 +6,7 @@ import sys
 from displayeffects import GameColours as Col
 from displayeffects import clear_console
 from displayeffects import type_effect
-import ascii_art
+import asciiart
 
 SIZE = 8
 NUM_BEES = 10
@@ -24,9 +24,9 @@ def print_intro():
     Displays title_art and game instructions
     """
     type_effect('Welcome to...\n')
-    print((ascii_art.TITLE_ART) + Col.RESET)
+    print((asciiart.TITLE_ART) + Col.RESET)
     input("Press enter to read the game instructions...\n")
-    print((ascii_art.INSTRUCTIONS) + Col.RESET)
+    print((asciiart.INSTRUCTIONS) + Col.RESET)
 
 
 def get_player_name():
@@ -118,7 +118,7 @@ def keep_playing(question):
             return True
         if player_input == 'N':
             type_effect('Bye for now. Come back again soon to help more bees!')
-            print(ascii_art.GOODBYE)
+            print(asciiart.GOODBYE)
             sys.exit()
         else:
             type_effect("Invalid choice. Please enter 'Y' or 'N'")
@@ -135,7 +135,7 @@ def finish_game():
             play_game()
         else:
             type_effect('Bye for now. Come back again soon to help more bees!')
-            print(ascii_art.GOODBYE)
+            print(asciiart.GOODBYE)
             sys.exit()
 
 
@@ -158,7 +158,7 @@ def play_game():
 
     get_player_name()
 
-    question = 'Would you like to try to find the bees? Enter Y or N:\n'
+    question = 'Would you like to keep playing Free the Bees? Enter Y or N:\n'
 
     for turn in range(0, TURNS, 1):
         while True:
@@ -193,12 +193,12 @@ def play_game():
     if success != 0:
         type_effect(f'Well done for feeding {success} bees!\n'
                     'That is this round of Free the Bees over!')
-        print(Col.G + (ascii_art.GAME_OVER) + Col.RESET)
+        print(Col.G + (asciiart.GAME_OVER) + Col.RESET)
     else:
         type_effect(f'Bad luck, maybe you can feed more bees'
                     ' next time.\nThat is this round of Free '
                     'the Bees over!')
-        print(Col.R + (ascii_art.GAME_OVER) + Col.RESET)
+        print(Col.R + (asciiart.GAME_OVER) + Col.RESET)
 
     finish_game()
 
