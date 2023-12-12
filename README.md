@@ -125,12 +125,20 @@ Lucidchart Edited Version
 
 - Once the user has confirmed they are ready, the backstory of the game is revealed with instructions on how to play. 
 - The player is asked to enter their name and this is validated before moving on.
-- Then the player is asked to confirm they would like to proceed. This happens at every guess, should the player need to stop the game before it is finished.
+- Then the player is asked to confirm they would like to proceed.
 
 ![A screenshot of the backstory](docs/screenshots/pp3-instructions.png "Screenshot of the backstory")
 
 #### The Hive
+After each turn, the user is asked if they would like to
+- continue
+- or exit
+
+![A screenshot of early exit](docs/screenshots/pp3-early-exit.png "Screenshot of early exit")
+
+Once they have confirmed they would like to proceed, the player sees
   - a visual display of the bee hive where the bees are trapped
+  - a request for input a row and column they think the bee is trapped in
 
 ![A screenshot of the hive](docs/screenshots/pp3-hive-continue.png "Screenshot of the hive")
 
@@ -147,14 +155,19 @@ Lucidchart Edited Version
 
 ![A screenshot of the feedback](docs/screenshots/pp3-duplicate-guess.png "Screenshot of duplicate guess")
 
-
 #### Final feedback
-When the number of turns is finished and the game is over
+If they choose to complete all the turn,when the player is out of turns and the game is over
   - the players get their final score
   - along with some personalised feedback
-  - and they are invited to play again or exit
 
-![A screenshot of final results](docs/screenshots/pp3-final-result.png "Screenshot of final results")
+![A screenshot of final results](docs/screenshots/pp3-final-positive.png "Screenshot of final results")
+
+#### Finish the game
+ When they have finished, the player is invited 
+- to play another round
+- or exit
+
+![A screenshot of finish game](docs/screenshots/pp3-finish-game.png "Screenshot of finish game")
 
 #### Validations
 If the player enters an invalid answer
@@ -188,7 +201,7 @@ I have tried to be inclusive for everyone when coding this website by
 
 ### Languages Used
 
-This website was made using Python.
+This game was made using Python.
 
 ### Frameworks, Libraries & Programs Used
 
