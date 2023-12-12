@@ -339,6 +339,8 @@ Concept and content written by Kellie McConnell, a human tired of the normalisat
 
 Thank you so much to everyone who helped me in this project.
 
+- Corey Shafer from YouTube [Python OOP Tutorial Playlist](https://www.youtube.com/playlist?list=PL-osiE80TeTsqhIuOqKhwlXsIBIdSeYtc). Nothing about classes, or Python in general, really clicked until these. I should have made time to watch them earlier.
+
 - David Bowers, my Code Institute Mentor, thank you for your patience in the face of my panic and hopelessness.
 
 - Rohit Sharma, for fitting me in for an extra mentor session to help me simplify the tangle I created.
