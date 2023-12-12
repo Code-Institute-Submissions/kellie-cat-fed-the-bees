@@ -8,9 +8,9 @@ This game aims to provide entertainment while highlighting the importance of the
 
 [View Free the Bees Live Site](https://fed-the-bees-4595451a08dc.herokuapp.com/)
 
-![GitHub contributors]()
-![GitHub top language]()
-![GitHub last commit]()
+![GitHub contributors](https://img.shields.io/github/contributors/kellie-cat/fed-the-bees)
+![GitHub top language](https://img.shields.io/github/languages/top/kellie-cat/fed-the-bees)
+![GitHub last commit](https://img.shields.io/github/last-commit/kellie-cat/fed-the-bees)
 
 ---
 
@@ -265,7 +265,7 @@ The relevant validator for Python, [Code Institute PEP8 Python Linter](https://p
 Many issues were discovered and resolved throughout the project.
 
 1. Trial and error and patience are key. Many times I tried many lines of code that did not work. I learned to just keep trying. Keep calm. Keep breathing.
-1. **Issue**: 
+1. **Issue**: Import sys
    **Cause**:   
    **Solution**: 
 
