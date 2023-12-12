@@ -2,6 +2,7 @@ import unicodedata
 from random import randint
 import pyfiglet
 import os
+import sys
 from displayeffects import GameColours as Col
 from displayeffects import type_effect
 from displayeffects import clear_console
@@ -141,10 +142,7 @@ def finish_game():
         play_game()
     elif keep_playing(question) is False:
         type_effect('Bye for now. Come back again soon to help more bees!')
-        SystemExit()
-
-
-def play_game():
+        SystemExit()yssdef play_game():
     """
     Runs game, clears 1st line, randomly creates the coordinates for hidden
     bees and places them in hidden hive, gets player name, asks if player
