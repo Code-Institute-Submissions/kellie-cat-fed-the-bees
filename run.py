@@ -34,7 +34,7 @@ def get_player_name():
     Asks for player name and validates it
     """
     while True:
-        PLAYER = input(Col.C + "Please tell us your name to start"
+        PLAYER = input(Col.C + "Please tell us your name to start "
                        "feeding the bees!\n" + Col.RESET)
         if len(PLAYER.strip()) >= 2 and not PLAYER.isnumeric():
             type_effect(f'Thanks for helping the bees, {PLAYER}!\n')
@@ -69,9 +69,19 @@ def computer_create_bees(hive):
     """
     Loop for computer to generate random coordinates for bees to find
     """
+    random_bees = []
+
     for i in range(NUM_BEES):
-        bee_row, bee_column = randint(0, 7), randint(0, 7)
+        bee_row, bee_column = randint(0, SIZE - 1), randint(0, SIZE - 1)
+
+        # Check if the coordinates are already occupied by a bee
+        while (bee_row, bee_column) in random_bees:
+            bee_row, bee_column = randint(0, SIZE - 1), randint(0, SIZE - 1)
+
+        random_bees.append((bee_row, bee_column))
         hive[bee_row][bee_column] = "X"
+
+    print(random_bees)
 
 
 def guess_bee_location(hive):
