@@ -164,8 +164,8 @@ If they choose to complete all the turn,when the player is out of turns and the 
 
 #### Finish the game
  When they have finished, the player is invited 
-- to play another round
-- or exit
+- to play another round and the game restarts
+- or exit and the program finishes
 
 ![A screenshot of finish game](docs/screenshots/pp3-finish-game.png "Screenshot of finish game")
 
