@@ -228,96 +228,62 @@ Google Chrome Development Tools - To test the code as I was writing it, and to t
 
 [Shields](https://shields.io/) - To display the shield icons in this document.
 
-## Deployment & Local Development
+## Deployment & Development
 
-### Deployment
+### ***Playing on a Local machine or via Gitpod Terminal:***
+This project was developed using a [specialized Code Institute template](https://github.com/Code-Institute-Org/python-essentials-template) which simulates a terminal in the web browser. Due to this, I optimized the game to work by deploying the [final version on Heroku](), and I do not recommend playing it locally. I have included this section for completeness.  
+1. Navigate to the [GitHub repository](https://github.com/kellie-cat/fed-the-bees), and follow [these steps to clone the project](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) into your IDE of choice.   
+   
+   * **Gitpod** only **requires** you to have the **web extension** installed and **click** the **green Gitpod button** from the repositories main page. If you are **using Gitpod** please **skip step 2** below as you do not need a virtual environment to protect your machine.  
+  
+1. **Create** the **virtual environment** with the terminal command **"python3 -m venv venv".** Once complete add the "venv" file to you're ".gitignore" file and use the terminal command **"venv\Scripts\activate.bat" to activate it.**
+   
+   * ***IMPORTANT*** If developing locally on your device, ensure you **set up/activate the virtual environment before installing/generating the requirements.txt file**; failure to do this will pollute your machine and put other projects at 
+ 
+1. **Install the requirements** listed in requirements.txt using the terminal command  **"pip3 install -r requirements.txt"**
+   * Kindly note that since I developed the project from scratch and installed the required libraries as progressed **I have already included a requirements.txt for this app** by using the terminal command **"pip3 freeze > requirements.txt"** to generate it.
 
-Github Pages was used to deploy the live website. The instructions to achieve this are:
-
-1. Log in (or sign up) to Github.
-2. Find the repository for this project, kellie-cat/fed-the-bees.
-3. Click on the Settings link.
-4. Click on the Pages link in the left hand side navigation bar.
-5. In the Source section, ensure Deploy from a branch is selected, and choose main from the drop down select branch menu. Select Root from the drop down select folder menu.
-Click Save.
-Your live Github Pages site is now deployed at the URL shown.
-
-### Local Development
-
-#### How to Fork
-
-To fork the Free the Bees:
-
-1. Log in (or sign up) to Github.
-2. Go to the repository for this project, kellie-cat/fed-the-bees.
-3. Click the Fork button in the top right corner.
-
-#### How to Clone
-
-To clone the Cavity Prevention Quiz:
-
-1. Log in (or sign up) to GitHub.
-2. Go to the repository for this project, kellie-cat/fed-the-bees.
-3. Click on the code button, select whether you would like to clone with HTTPS, SSH or GitHub CLI and copy the link shown.
-4. Open the terminal in your code editor and change the current working directory to the location you want to use for the cloned directory.
-5. Type 'git clone' into the terminal and then paste the link you copied in step 3. Press enter.
+## ***Final Deployment to Heroku:***  
+  
+The project was deployed to [Heroku](https://www.heroku.com) using the below procedure:-    
+  
+1. **Log in to Heroku** or create an account if you don't already have one.
+1. **Click** the button labeled **New** from the dashboard in the top right corner, just below the header.
+1. From the drop-down menu **select "Create new app"**.
+1. **Enter a unique app name**. I called this one "fed-the-bees".
+1. Once the web portal shows the green tick to confirm the name is original **select the relevant region.** I left mine as Ireland.
+1.  When happy with your choice of name and that the correct region is selected, **click** on the **"Create app" button**.
+1. This will bring you to the project "Deploy" tab. From here, navigate to the **settings tab** and scroll down to the **"Config Vars" section**. 
+1. **Click** the button labelled **"Reveal Config Vars"** and **enter** the **"key" as port**, the **"value" as 8000** and **click** the **"add"** button.
+1. Scroll down to the **buildpacks section of the settings page** and click the button labeled **" add buildpack," select "Python," and click "Save Changes"**.
+1. **Repeat step 11 but** this time **add "node.js" instead of python**. 
+   * ***IMPORTANT*** The buildpacks must be in the correct order. If node.js is listed first under this section, you can click on python and drag it upwards to change it to the first buildpack in the list.
+1. Scroll back to the top of the settings page, and **navigate to the "Deploy" tab.**
+1. From the deploy tab **select Github as the deployment method**.
+1. **Confirm** you want to **connect to GitHub**.
+1. **Search** for the **repository name** and **click** the **connect** button next to the intended repository.
+1. From the bottom of the deploy page **select your preferred deployment type** by follow one of the below steps:  
+   * Clicking either "Enable Automatic Deploys" for automatic deployment when you push updates to Github.  
+   * Select the correct branch for deployment from the drop-down menu and click the "Deploy Branch" button for manual deployment. 
 
 ## Testing
 
-The website was tested as it was built on Google Chrome using Google Devtools. It was designed with a mobile-first mindset and other screensizes were adjusted using media queries. Other browsers were tested.
+The game was tested as it was built with Python, using the commands **pylint** and **pystylecode**.
 
-Once the website was complete, it was tested with Wave and Lighthouse for accessibility.
+The relevant validator for Python, [Code Institute PEP8 Python Linter](https://pep8ci.herokuapp.com/) was used to check the code.
 
-Lighthouse Home page on desktop
-![Lighthouse Home page on desktop](docs/pp2-lighthouse-index-desktop.png "Lighthouse Home page on desktop")
+![Python validation]( "Screenshot of Python Validation")
 
-Lighthouse Home page on mobile
-![Lighthouse Home page on mobile](docs/pp2-lighthouse-index-mobile.png "Lighthouse Home page on mobile")
 
-Lighthouse Quiz Page on desktop
-![Lighthouse Quiz Page on desktop](docs/pp2-lighthouse-quiz-desktop.png "Lighthouse Quiz Page on desktop")
-
-Lighthouse Quiz Page on mobile
-![Lighthouse Quiz Page on mobile](docs/pp2-lighthouse-quiz-mobile.png "Lighthouse Quiz Page on mobile")
-
-The relevant validators were used to check all of the HTML, CSS and JavaScript on the site.
-
-![Home Page HTML validation](docs/html-validation-pp2.png "HTML validation for Home Page")
-
-![Quiz Page HTML validation](docs/html-quiz-validation-pp2.png "HTML validation for Quiz Page")
-
-![CSS validation](docs/css-validation-pp2.png "CSS validation")
-
-![JavaScript validation](docs/pp2-javascript-validation.png "JavaScript validation")
-
-JSHint showed one constant that had not been used, so this was removed.
-Then it showed the following warning. As this was not an error, it was not resolved in this project, but it is something I will be conscious of in future.
-
-I checked Google and Slack for solutions and it seems to be a common issue. Sadly there is no specific way to correct it. From this research, I did change the var keyword to a let keyword to be more inline with modern practices and to prevent unexpected results from global scope.
 
 ### Resolved Bugs
 
 Many issues were discovered and resolved throughout the project.
 
-1. Trial and error and patience are key for JavaScript. Many times I tried many lines of code that did not work. I learned to just keep trying.
-2. **Issue**: I thought I had correctly programmed the correct and incorrect scores to increment... only to discover the incorrect score kept going up if the user clicked on the wrong answer again.  
-   **Cause**: The answer buttons were still able to be clicked and the event listenter kept calling the relevant increment score functions when they were clicked.  
-   **Solution**: I fixed this issue by disabling the incorrect buttons once they were pressed, when the next question button is pressed, all buttons become active again.
-3. **Issue**: I wanted to highlight the feedback area when it was given, and tried to add animation. This proved difficult.  
-   **Cause**: I am not familiar with frameworks and libraries yet and hope to learn more in the future.  
-   **Solution**: I eventually settled on a simpler CSS animation and added JavaScript frameworks and libraries to my learning goals.
-4. **Issue**: The index.html page returned a JavaScript error during testing.  
-   **Cause**: The index.html page does not have the relevant HTML elements for the JavaScript to run.  
-   **Solution**: I used an If statement to set the JavaScript to only run on the quiz.html URL. This in turn caused an issue...
-5. **Issue**: The testing URL and the deployed URL are not the same! So the JavaScript did not run for testing if I set the URL as the deployed page.  
-   **Cause**: Murphy's law.  
-   **Solution**: I pushed the If statement to make sure it worked. Then commented it out until the final save. Which in turn caused another issue...
-6. **Issue**: The need to remember to uncomment the code at the final save.  
-   **Cause**: My memory. Or lack of.  
-   **Solution**: A reminder! A reminder handwritten in my notebook, in CAPS above the commented out code, on my wall calendar and in my phone calendar app! In amongst all the other reminders, this is a foolproof solution!
-7. **Issue**: The disabling of the already tried incorrect answers was inconsistent.  
-   **Cause**: After much testing, I worked out that the function disableIncorrectRef which called elements by class name 'active', only worked on the first element it found with the class name active. So if I clicked the 3rd button 1st, it was disabled, and either of the 1st or 2nd would also be correctly disabled. However, if the 1st button was clicked and disabled, then the 2nd or 3rd buttons would remain active.  
-   **Solution**: I tried to add 'disabled' as a class and then set pointer-events: none. However this was not ideal, as it also meant the cursor: not-allowed effect did not work. I decided to add an attribute of disabled to the button with the event listener. This was already removed by the nextQuestion function.
+1. Trial and error and patience are key. Many times I tried many lines of code that did not work. I learned to just keep trying. Keep calm. Keep breathing.
+1. **Issue**: 
+   **Cause**:   
+   **Solution**: 
 
 ### Known Bugs
 
@@ -328,7 +294,7 @@ There are no unfixed bugs in Free the Bees.
 ### Code Used
 
 - [Kera Cudmore's README.md for the Bully Book Club](https://github.com/kera-cudmore/Bully-Book-Club)
-- 
+- [Python OOP Tutorial Playlist by Corey Shafer](https://www.youtube.com/playlist?list=PL-osiE80TeTsqhIuOqKhwlXsIBIdSeYtc)
 - [Geeks for Geeks leeson on ASCII art](https://www.geeksforgeeks.org/python-ascii-art-using-pyfiglet-module/)
 
 ### Content
