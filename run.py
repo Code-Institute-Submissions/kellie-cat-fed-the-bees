@@ -4,8 +4,9 @@ import pyfiglet
 import os
 import sys
 from displayeffects import GameColours as Col
-from displayeffects import type_effect
 from displayeffects import clear_console
+from displayeffects import type_effect
+import ascii_art
 
 SIZE = 8
 NUM_BEES = 10
@@ -22,9 +23,8 @@ def print_intro():
     """
     Displays title_art and game instructions
     """
-    title_art = pyfiglet.figlet_format('FREE THE BEES', font="bubble")
     type_effect(Col.Y + 'Welcome to...\n')
-    print((title_art) + Col.RESET)
+    print((ascii_art.TITLE_ART) + Col.RESET)
     input("Press enter to read the game instructions...\n")
     type_effect("In a dystopian time, bees are hungry and can't escape their"
                 " hive")
@@ -54,7 +54,7 @@ def get_player_name():
             type_effect("Numbers on their own don't count! Try a name"
                         " with letters or characters too")
         elif len(PLAYER.strip()) <= 2:
-            type_effect(f"{PLAYER} is not a valid choice, tell the "
+            type_effect(f"'{PLAYER}' is not a valid choice, tell the "
                         "friendly bees your name with a few more letters"
                         " or characters")
         else:
@@ -139,7 +139,7 @@ def finish_game():
     Reset the game or exit
     """
     question = 'Would you like to play again? Enter Y or N:\n'
-    while True:  
+    while True:
         if keep_playing(question) is True:
             os.execv(sys.executable, ['python'] + sys.argv)
             play_game()

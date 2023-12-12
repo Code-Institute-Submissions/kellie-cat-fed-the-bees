@@ -1,5 +1,5 @@
 """
-Import section
+Makes run.py more readable and shortens lines 
 """
 import time
 import os
@@ -17,14 +17,6 @@ class GameColours():
     Y = Fore.YELLOW
     C = Fore.CYAN
     RESET = Fore.RESET
-
-
-def strip_color_codes(text):
-    """
-    Function to remove color codes from the given text
-    https://www.w3schools.com/python/ref_string_strip.asp
-    """
-    return Fore.strip(text)
 
 
 def type_effect(text):
