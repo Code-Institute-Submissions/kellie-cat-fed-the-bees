@@ -47,14 +47,16 @@ def get_player_name():
     while True:
         PLAYER = input(Col.C + "Please tell us your name so the bees"
                        " can say thanks!\n" + Col.RESET)
-        if len(PLAYER) >= 2 and not PLAYER.isnumeric():
+        if len(PLAYER.strip()) >= 2 and not PLAYER.isnumeric():
             type_effect(f'Thanks for helping the bees, {PLAYER}!\n')
             break
         if PLAYER.isnumeric():
-            type_effect("Numbers don't count! Try a name with letters")
-        elif len(PLAYER) <= 2:
-            type_effect(f"The bees are friends, {PLAYER}, tell them your full"
-                        " name")
+            type_effect("Numbers on their own don't count! Try a name"
+                        " with letters or characters too")
+        elif len(PLAYER.strip()) <= 2:
+            type_effect(f"{PLAYER} is not a valid choice, tell the "
+                        "friendly bees your name with a few more letters"
+                        " or characters")
         else:
             type_effect("That name is not valid, please enter a name with "
                         "letters, or characters, bees don't like strangers!")
@@ -126,7 +128,8 @@ def keep_playing(question):
         if player_input == 'Y':
             return True
         if player_input == 'N':
-            return False
+            type_effect('Bye for now. Come back again soon to help more bees!')
+            sys.exit()
         else:
             type_effect("Invalid choice. Please enter 'Y' or 'N'")
 
@@ -136,7 +139,7 @@ def finish_game():
     Reset the game or exit
     """
     question = 'Would you like to play again? Enter Y or N:\n'
-    while True:
+    while True:  
         if keep_playing(question) is True:
             os.execv(sys.executable, ['python'] + sys.argv)
             play_game()
