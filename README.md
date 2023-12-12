@@ -6,7 +6,7 @@ This game aims to provide entertainment while highlighting the importance of the
 
 ![Screenshot of Free the Bees]( "Free the Bees on Am I Responsive")
 
-[View Free the Bees Live Site](heroku)
+[View Free the Bees Live Site](https://fed-the-bees-4595451a08dc.herokuapp.com/)
 
 ![GitHub contributors]()
 ![GitHub top language]()
@@ -115,7 +115,7 @@ Lucidchart Edited Version
 
 #### The Title Art
 
-![A screenshot of the Title Art]( "Screenshot of the Title Art")
+![A screenshot of the Title Art](docs/screenshots/pp3-title-art.png "Screenshot of the Title Art")
 
 - When users first load the page, the home page is displayed to
   - welcome the user and introduce the name of the game
@@ -127,27 +127,43 @@ Lucidchart Edited Version
 - The player is asked to enter their name and this is validated before moving on.
 - Then the player is asked to confirm they would like to proceed. This happens at every guess, should the player need to stop the game before it is finished.
 
-![A screenshot of the backstory]( "Screenshot of the backstory")
+![A screenshot of the backstory](docs/screenshots/pp3-instructions.png "Screenshot of the backstory")
 
-The Hive
+#### The Hive
   - a visual display of the bee hive where the bees are trapped
 
-![A screenshot of the hive]( "Screenshot of the hive")
+![A screenshot of the hive](docs/screenshots/pp3-hive-continue.png "Screenshot of the hive")
 
-Feedback
-  - tells the user if they got the question correct or incorrect
-  - and when they answer correctly, an explaination of the correct answer appears
+#### Feedback
+  - tells the user if they fed a bee
 
-![A screenshot of the feedback]( "Screenshot of the feedback area")
+![A screenshot of the feedback](docs/screenshots/pp3-positive-feedback.png "Screenshot of positive feedback")
 
-- if an incorrect answer is given then a window opens to warn the user that answer was not correct and a background container hides the quiz until the user closes the incorrect answer window
+  - or tells them if they missed
 
-Final feedback
-  - give the users their final score
+![A screenshot of the feedback](docs/screenshots/pp3-negative-feedback.png "Screenshot of negative feedback")
+
+- and if they make a duplicate guess, it lets them know they can try again
+
+![A screenshot of the feedback](docs/screenshots/pp3-duplicate-guess.png "Screenshot of duplicate guess")
+
+
+#### Final feedback
+When the number of turns is finished and the game is over
+  - the players get their final score
   - along with some personalised feedback
-  - and invites them to refresh the game
+  - and they are invited to play again or exit
 
-![A screenshot of final results](docs/pp2-final-result-mobile.png "Screenshot of final results")
+![A screenshot of final results](docs/screenshots/pp3-final-result.png "Screenshot of final results")
+
+#### Validations
+If the player enters an invalid answer
+- they have a chance to retry without crashing the game
+- and they receive some feedback on how to make a valid guess
+
+![A screenshot of invalid input](docs/screenshots/pp3-invalid-guess-nan.png "Screenshot of Not a Number")
+
+![A screenshot of invalid input](docs/screenshots/pp3-invalid-guess-number.png "Screenshot of outside hive")
 
 ### Future Implementations
 
