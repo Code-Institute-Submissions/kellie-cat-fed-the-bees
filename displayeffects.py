@@ -1,5 +1,5 @@
 """
-Makes run.py more readable and shortens lines 
+Makes run.py more readable and shortens lines
 """
 import time
 import os
@@ -26,7 +26,7 @@ def type_effect(text):
     for char in text:
         sys.stdout.write(char)
         sys.stdout.flush()
-        time.sleep(.015)
+        time.sleep(.01)
     print()
 
 

@@ -28,6 +28,7 @@ def print_intro():
     input("Press enter to read the game instructions...\n")
     print((ascii_art.INSTRUCTIONS) + Col.RESET)
 
+
 def get_player_name():
     """
     Asks for player name and validates it
@@ -39,15 +40,15 @@ def get_player_name():
             type_effect(f'Thanks for helping the bees, {PLAYER}!\n')
             break
         if PLAYER.isnumeric():
-            type_effect("Numbers on their own don't count! Try a name"
-                        " with letters or characters too")
+            print("Numbers on their own don't count! Try a name"
+                  " with letters or characters too")
         elif len(PLAYER.strip()) <= 2:
-            type_effect(f"'{PLAYER}' is not a valid choice, tell the "
-                        "friendly bees your name with a few more letters"
-                        " or characters")
+            print(f"'{PLAYER}' is not a valid choice, tell the "
+                  "friendly bees your name with a few more letters"
+                  " or characters")
         else:
-            type_effect("That name is not valid, please enter a name with "
-                        "letters, or characters, bees don't like strangers!")
+            print("That name is not valid, please enter a name with "
+                  "letters, or characters, bees don't like strangers!")
     return PLAYER
 
 
@@ -88,9 +89,9 @@ def guess_bee_location(hive):
                 if guess_row not in range(0, 8):
                     type_effect("That is outside the hive. Pick a number 1-8")
             except ValueError as e:
-                type_effect("That's not a valid choice, it gave an error: "
-                            "Please select a valid row by picking a number"
-                            " from 1-8, then enter")
+                print("That's not a valid choice, it gave an error: "
+                      "Please select a valid row by picking a number"
+                      " from 1-8, then enter")
 
         while True:
             try:
@@ -99,11 +100,11 @@ def guess_bee_location(hive):
                 if guess_column in range(0, 8):
                     break
                 if guess_column not in range(0, 8):
-                    type_effect("That is outside the hive. Pick a number 1-8")
+                    print("That is outside the hive. Pick a number 1-8")
             except ValueError:
-                type_effect("That's not a valid choice, it gave an error: "
-                            "Please select a valid column by picking a number"
-                            " from 1-8, then enter")
+                print("That's not a valid choice, it gave an error: "
+                      "Please select a valid column by picking a number"
+                      " from 1-8, then enter")
         return guess_row, guess_column
 
 
@@ -168,19 +169,19 @@ def play_game():
             print_hive(PLAYER_VISIBLE_HIVE)
             guess_row, guess_column = guess_bee_location(PLAYER_BEE_HIVE)
             if PLAYER_VISIBLE_HIVE[guess_row][guess_column] == miss:
-                print(Col.Y + "You guessed that one already, have "
-                      "another try." + Col.RESET)
+                type_effect(Col.Y + "You guessed that one already, have "
+                            "another try." + Col.RESET)
             elif PLAYER_VISIBLE_HIVE[guess_row][guess_column] == found_bee:
-                print(Col.Y + "You guessed that one already, have "
-                      "another try." + Col.RESET)
+                type_effect(Col.Y + "You guessed that one already, have "
+                            "another try." + Col.RESET)
             elif PLAYER_BEE_HIVE[guess_row][guess_column] == "X":
-                print(Col.G + "SUCCESS! You fed a bee!" + Col.RESET)
+                type_effect(Col.G + "SUCCESS! You fed a bee!" + Col.RESET)
                 PLAYER_VISIBLE_HIVE[guess_row][guess_column] = found_bee
                 success += 1
                 break
             else:
-                print(Col.R + "MISS! The bees are still hungry" +
-                      Col.RESET)
+                type_effect(Col.R + "MISS! The bees are still hungry" +
+                            Col.RESET)
                 PLAYER_VISIBLE_HIVE[guess_row][guess_column] = miss
                 break
             turn += 1
