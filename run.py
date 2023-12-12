@@ -1,14 +1,11 @@
 import unicodedata
-
 from random import randint
-
 import os
 import sys
-
 import pyfiglet
-
-import colorama
-from colorama import Fore
+import time
+from displayeffects import GameColors as Col
+from displayeffects import strip_color_codes
 
 SIZE = 8
 NUM_BEES = 10
@@ -26,19 +23,19 @@ def print_intro():
     Displays title_art and game instructions
     """
     title_art = pyfiglet.figlet_format('FREE THE BEES', font="bubble")
-    print(Fore.YELLOW + 'Welcome to...\n')
-    print((title_art) + Fore.RESET)
+    type_effect(Col.Y + 'Welcome to...\n')
+    print((title_art) + Col.RESET)
     input("Press enter to read the game instructions...\n")
-    print("In a dystopian time, bees are hungry and can't escape their hive")
-    print('You have stumbled across a beehive and want to help')
-    print('Try to give the bees nectar without destroying their home')
-    print(f'The hive is {SIZE} squares long and high')
-    print(f'There are {NUM_BEES} bees to find in each hive')
-    print('Feed as many bees as you can so they can survive!')
-    print(f'You only have {TURNS} drops of nectar to give them')
-    print('Feed the bees by guessing a coordinate you think they are at')
-    print('When prompted, input a number for x-axis (horizontal rows) first')
-    print('Then a number for the y-axis (vertical columns)\n')
+    type_effect("In a dystopian time, bees are hungry and can't escape their hive")
+    type_effect('You have stumbled across a beehive and want to help')
+    type_effect('Try to give the bees nectar without destroying their home')
+    type_effect(f'The hive is {SIZE} squares long and high')
+    type_effect(f'There are {NUM_BEES} bees to find in each hive')
+    type_effect('Feed as many bees as you can so they can survive!')
+    type_effect(f'You only have {TURNS} drops of nectar to give them')
+    type_effect('Feed the bees by guessing a coordinate you think they are at')
+    type_effect('When prompted, input a number for x-axis (horizontal rows) first')
+    type_effect('Then a number for the y-axis (vertical columns)\n')
 
 
 def get_player_name():
@@ -46,17 +43,17 @@ def get_player_name():
     Asks for player name and validates it
     """
     while True:
-        PLAYER = input(Fore.CYAN + "Please tell us your name so the bees"
-                       " can say thanks!\n" + Fore.RESET)
+        PLAYER = input(Col.C + "Please tell us your name so the bees"
+                       " can say thanks!\n" + Col.RESET)
         if len(PLAYER) >= 2 and not PLAYER.isnumeric():
-            print(f'Thanks for helping the bees, {PLAYER}!\n')
+            type_effect(f'Thanks for helping the bees, {PLAYER}!\n')
             break
         if PLAYER.isnumeric():
-            print("Numbers don't count! Try a name with letters")
+            type_effect("Numbers don't count! Try a name with letters")
         elif len(PLAYER) <= 2:
-            print(f"The bees are friends, {PLAYER}, tell them your full name")
+            type_effect(f"The bees are friends, {PLAYER}, tell them your full name")
         else:
-            print("That name is not valid, please enter a name with letters,"
+            type_effect("That name is not valid, please enter a name with letters,"
                   " or characters, bees don't like strangers!")
     return PLAYER
 
@@ -66,11 +63,11 @@ def print_hive(hive):
     Prints the hive
     """
     print("  1   2   3   4   5   6   7   8")
-    print(Fore.YELLOW + "  -------------------------------" + Fore.RESET)
+    print(Col.Y + "  -------------------------------" + Col.RESET)
     row_number = 1
     for row in hive:
-        print(str(row_number) + " " + Fore.YELLOW + " | ".join(row) +
-              Fore.RESET)
+        print(str(row_number) + " " + Col.Y + " | ".join(row) +
+              Col.RESET)
         row_number += 1
 
 
@@ -91,29 +88,29 @@ def guess_bee_location(hive):
     if turn in range(TURNS):
         while True:
             try:
-                guess_row = int(input(Fore.CYAN + 'Guess which row a bee is'
-                                      ' hiding on:\n' + Fore.RESET)) - 1
+                guess_row = int(input(Col.C + 'Guess which row a bee is'
+                                      ' hiding on:\n' + Col.RESET)) - 1
                 if guess_row in range(0, 8):
                     break
                 if guess_row not in range(0, 8):
-                    print("That is outside the hive. Pick a number from 1-8")
+                    type_effect("That is outside the hive. Pick a number 1-8")
             except ValueError as e:
-                print("That's not an appropriate choice, it gave an error: "
-                      f"{e}\n Please select a valid row by picking a number "
-                      " from 1-8, then enter")
+                type_effect("That's not a valid choice, it gave an error: "
+                            "Please select a valid row by picking a number"
+                            " from 1-8, then enter")
 
         while True:
             try:
-                guess_column = int(input(Fore.CYAN + 'Guess which column a bee'
-                                         ' is hiding on:\n' + Fore.RESET)) - 1
+                guess_column = int(input(Col.C + 'Guess which column a bee'
+                                         ' is hiding on:\n' + Col.RESET)) - 1
                 if guess_column in range(0, 8):
                     break
                 if guess_column not in range(0, 8):
-                    print("That is outside the hive. Pick a number from 1-8")
-            except ValueError as e:
-                print("That's not an appropriate choice, it gave an error: "
-                      f"{e}\n Please select a valid column by picking a number"
-                      " from 1-8, then enter")
+                    type_effect("That is outside the hive. Pick a number 1-8")
+            except ValueError:
+                type_effect("That's not a valid choice, it gave an error: "
+                            "Please select a valid column by picking a number"
+                            " from 1-8, then enter")
         return guess_row, guess_column
 
 
@@ -122,13 +119,13 @@ def keep_playing(question):
     Chose whether the player wants to continue or quit the game.
     """
     while True:
-        player_input = input(Fore.CYAN + (question) + Fore.RESET).upper()
+        player_input = input(Col.C + (question) + Col.RESET).upper()
         if player_input == 'Y':
             return True
         if player_input == 'N':
             return False
         else:
-            print("Invalid choice. Please enter 'Y' or 'N'")
+            type_effect("Invalid choice. Please enter 'Y' or 'N'")
 
 
 def clear_console():
@@ -151,8 +148,19 @@ def finish_game():
         os.execv(sys.executable, ['python'] + sys.argv)
         play_game()
     elif keep_playing(question) is False:
-        print('Bye for now. Come back again soon to help more bees!')
+        type_effect('Bye for now. Come back again soon to help more bees!')
         sys.exit()
+
+
+def type_effect(text):
+    """
+    Function to add a typewriter effect to print statements.
+    """
+    for char in text:
+        sys.stdout.write(char)
+        sys.stdout.flush()
+        time.sleep(.015)
+    print()
 
 
 def play_game():
@@ -180,26 +188,26 @@ def play_game():
         while True:
             if turn <= TURNS - 1:
                 if not keep_playing(question):
-                    print('Bye for now. Please come back soon to help free '
+                    type_effect('Bye for now. Please come back soon to help free '
                           'the bees!')
                     sys.exit()
-            print('Guess a bee location on the hive below...')
+            type_effect('Guess a bee location on the hive below...')
             print_hive(PLAYER_VISIBLE_HIVE)
             guess_row, guess_column = guess_bee_location(PLAYER_BEE_HIVE)
             if PLAYER_VISIBLE_HIVE[guess_row][guess_column] == miss:
-                print(Fore.YELLOW + "You guessed that one already, have "
-                      "another try." + Fore.RESET)
+                print(Col.Y + "You guessed that one already, have "
+                      "another try." + Col.RESET)
             elif PLAYER_VISIBLE_HIVE[guess_row][guess_column] == found_bee:
-                print(Fore.YELLOW + "You guessed that one already, have "
-                      "another try." + Fore.RESET)
+                print(Col.Y + "You guessed that one already, have "
+                      "another try." + Col.RESET)
             elif PLAYER_BEE_HIVE[guess_row][guess_column] == "X":
-                print(Fore.GREEN + "SUCCESS! You fed a bee!" + Fore.RESET)
+                print(Col.G + "SUCCESS! You fed a bee!" + Col.RESET)
                 PLAYER_VISIBLE_HIVE[guess_row][guess_column] = found_bee
                 success += 1
                 break
             else:
-                print(Fore.RED + "MISS! The bees are still hungry" +
-                      Fore.RESET)
+                print(Col.R + "MISS! The bees are still hungry" +
+                      Col.RESET)
                 PLAYER_VISIBLE_HIVE[guess_row][guess_column] = miss
                 break
             turn += 1
@@ -207,9 +215,9 @@ def play_game():
     print_hive(PLAYER_VISIBLE_HIVE)
 
     if success != 0:
-        print(f'Well done for feeding {success} bees, {PLAYER}!')
+        type_effect(f'Well done for feeding {success} bees, {PLAYER}!')
     else:
-        print(f'Bad luck, {PLAYER}, maybe you can feed more bees'
+        type_effect(f'Bad luck, {PLAYER}, maybe you can feed more bees'
               ' next time.')
 
     finish_game()
