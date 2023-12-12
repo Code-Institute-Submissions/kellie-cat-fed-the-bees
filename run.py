@@ -136,13 +136,13 @@ def finish_game():
     Reset the game or exit
     """
     question = 'Would you like to play again? Enter Y or N:\n'
-
-    if keep_playing(question) is True:
-        os.execv(sys.executable, ['python'] + sys.argv)
-        play_game()
-    elif keep_playing(question) is False:
-        type_effect('Bye for now. Come back again soon to help more bees!')
-        SystemExit()
+    while True:
+        if keep_playing(question) is True:
+            os.execv(sys.executable, ['python'] + sys.argv)
+            play_game()
+        else:
+            type_effect('Bye for now. Come back again soon to help more bees!')
+            sys.exit()
 
 
 def play_game():
@@ -197,10 +197,12 @@ def play_game():
     print_hive(PLAYER_VISIBLE_HIVE)
 
     if success != 0:
-        type_effect(f'Well done for feeding {success} bees!')
+        type_effect(f'Well done for feeding {success} bees!\n'
+                    'That is this round of Free the Bees over!')
     else:
         type_effect(f'Bad luck, maybe you can feed more bees'
-                    ' next time.')
+                    ' next time.\n That is this round of Free '
+                    'the Bees over!')
 
     finish_game()
 
