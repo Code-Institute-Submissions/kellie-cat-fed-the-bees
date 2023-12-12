@@ -1,11 +1,9 @@
 import unicodedata
 from random import randint
-import os
-import sys
 import pyfiglet
-import time
-from displayeffects import GameColors as Col
-from displayeffects import strip_color_codes
+from displayeffects import GameColours as Col
+from displayeffects import type_effect
+from displayeffects import clear_console
 
 SIZE = 8
 NUM_BEES = 10
@@ -26,7 +24,8 @@ def print_intro():
     type_effect(Col.Y + 'Welcome to...\n')
     print((title_art) + Col.RESET)
     input("Press enter to read the game instructions...\n")
-    type_effect("In a dystopian time, bees are hungry and can't escape their hive")
+    type_effect("In a dystopian time, bees are hungry and can't escape their"
+                " hive")
     type_effect('You have stumbled across a beehive and want to help')
     type_effect('Try to give the bees nectar without destroying their home')
     type_effect(f'The hive is {SIZE} squares long and high')
@@ -34,7 +33,8 @@ def print_intro():
     type_effect('Feed as many bees as you can so they can survive!')
     type_effect(f'You only have {TURNS} drops of nectar to give them')
     type_effect('Feed the bees by guessing a coordinate you think they are at')
-    type_effect('When prompted, input a number for x-axis (horizontal rows) first')
+    type_effect('When prompted, input a number for x-axis (horizontal rows) '
+                'first')
     type_effect('Then a number for the y-axis (vertical columns)\n')
 
 
@@ -51,10 +51,11 @@ def get_player_name():
         if PLAYER.isnumeric():
             type_effect("Numbers don't count! Try a name with letters")
         elif len(PLAYER) <= 2:
-            type_effect(f"The bees are friends, {PLAYER}, tell them your full name")
+            type_effect(f"The bees are friends, {PLAYER}, tell them your full"
+                        " name")
         else:
-            type_effect("That name is not valid, please enter a name with letters,"
-                  " or characters, bees don't like strangers!")
+            type_effect("That name is not valid, please enter a name with "
+                        "letters, or characters, bees don't like strangers!")
     return PLAYER
 
 
@@ -128,16 +129,6 @@ def keep_playing(question):
             type_effect("Invalid choice. Please enter 'Y' or 'N'")
 
 
-def clear_console():
-    """
-    Removes 1st line in windows and others
-    """
-    command = 'clear'
-    if os.name in ('nt', 'dos'):  # If computer is running windows use cls
-        command = 'cls'
-    os.system(command)
-
-
 def finish_game():
     """
     Reset the game or exit
@@ -149,18 +140,7 @@ def finish_game():
         play_game()
     elif keep_playing(question) is False:
         type_effect('Bye for now. Come back again soon to help more bees!')
-        sys.exit()
-
-
-def type_effect(text):
-    """
-    Function to add a typewriter effect to print statements.
-    """
-    for char in text:
-        sys.stdout.write(char)
-        sys.stdout.flush()
-        time.sleep(.015)
-    print()
+        SystemExit()
 
 
 def play_game():
@@ -188,8 +168,8 @@ def play_game():
         while True:
             if turn <= TURNS - 1:
                 if not keep_playing(question):
-                    type_effect('Bye for now. Please come back soon to help free '
-                          'the bees!')
+                    type_effect('Bye for now. Please come back soon to help '
+                                'free the bees!')
                     sys.exit()
             type_effect('Guess a bee location on the hive below...')
             print_hive(PLAYER_VISIBLE_HIVE)
@@ -218,7 +198,7 @@ def play_game():
         type_effect(f'Well done for feeding {success} bees, {PLAYER}!')
     else:
         type_effect(f'Bad luck, {PLAYER}, maybe you can feed more bees'
-              ' next time.')
+                    ' next time.')
 
     finish_game()
 

@@ -26,7 +26,7 @@ This game aims to provide entertainment while highlighting the importance of the
   - [Design](#design)
     - [Colour Scheme](#colour-scheme)
     - [Typography](#typography)
-    - [Wireframes](#wireframes)
+    - [Lucidchart](#lucidchart)
   - [Features](#features)
     - [General features](#general-features)
       - [The Welcome Page](#the-welcome-page)
@@ -36,11 +36,9 @@ This game aims to provide entertainment while highlighting the importance of the
   - [Technologies Used](#technologies-used)
     - [Languages Used](#languages-used)
     - [Frameworks, Libraries \& Programs Used](#frameworks-libraries--programs-used)
-  - [Deployment \& Local Development](#deployment--local-development)
-    - [Deployment](#deployment)
-    - [Local Development](#local-development)
-      - [How to Fork](#how-to-fork)
-      - [How to Clone](#how-to-clone)
+  - [Deployment \& Development](#deployment--development)
+    - [Playing on a Local machine or via Gitpod Terminal](#playing-on-a-local-machine-or-via-gitpod-terminal)
+    - [Final Deployment to Heroku](#final-deployment-to-heroku)
   - [Testing](#testing)
     - [Resolved Bugs](#resolved-bugs)
     - [Known Bugs](#known-bugs)
@@ -115,11 +113,9 @@ Lucidchart Edited Version
 
 ### General features
 
-The game
-
 #### The Title Art
 
-![A screenshot of the Title Art](docs/pp2-welcome-page-laptop.png "Screenshot of the Title Art")
+![A screenshot of the Title Art]( "Screenshot of the Title Art")
 
 - When users first load the page, the home page is displayed to
   - welcome the user and introduce the name of the game
@@ -131,36 +127,22 @@ The game
 - The player is asked to enter their name and this is validated before moving on.
 - Then the player is asked to confirm they would like to proceed. This happens at every guess, should the player need to stop the game before it is finished.
 
-![A screenshot of the backstory](docs/pp2-quiz-page-laptop.png "Screenshot of the backstory")
+![A screenshot of the backstory]( "Screenshot of the backstory")
 
-The majority of the page is the Game Area, containing:
+The Hive
+  - a visual display of the bee hive where the bees are trapped
 
-- a Question and Answer area
-  - with 3 multiple choice answers contained in buttons
-  - a different coloured button to move to the next page
+![A screenshot of the hive]( "Screenshot of the hive")
 
-![A screenshot of the question area](docs/pp2-question-area.png "Screenshot of the question area")
-
-- a Feedback area which
+Feedback
   - tells the user if they got the question correct or incorrect
   - and when they answer correctly, an explaination of the correct answer appears
 
-![A screenshot of the feedback area](docs/pp2-feedback-correct.png "Screenshot of the feedback area")
+![A screenshot of the feedback]( "Screenshot of the feedback area")
 
 - if an incorrect answer is given then a window opens to warn the user that answer was not correct and a background container hides the quiz until the user closes the incorrect answer window
 
-![A screenshot of the incorrect window](docs/pp2-incorrect-window-mobile.png "Screenshot of the incorrect window")
-
-- if the user answers incorrectly, they cannot move onto the next question, becuase the aim of the game is to get information across. They have to keep trying until they find the right answer and get a short explaination
-- the incorrect answer also disables so they can't put the same wrong answer in twice by mistake, and this is highlighted to the user with a cursor change and the answer that has already been tried remains highlighted
-
-![A screenshot of an incorrect answer highlighted](docs/pp2-game-area-laptop-incorrect.png "Screenshot of an incorrect answer highlighted")
-
-- a Score area which keeps a tally of correct and incorrect answers
-
-![A screenshot of the score area](docs/pp2-score-area-tablet.png "Screenshot of the score area")
-
-- When the game finishes, another window opens to
+Final feedback
   - give the users their final score
   - along with some personalised feedback
   - and invites them to refresh the game
@@ -182,25 +164,21 @@ If more resources opened up, I could add some additional features:
 
 I have tried to be inclusive for everyone when coding this website by
 
-- Using aria labels when appropriate for people using screen readers.
-
-- The EightShapes Contrast Grid was helpful with matching background and text colours with good contrast and making sure text is an appropriate size on all types of screen.
-
-![Colour Grid screenshot](docs/contrast-grid-pp2.png "Colour Grid screenshot")
-
-- Using semantic HTML as much as possible.
-
-- Testing the website with Wave and Lighthouse.
+- Using clear instructions
+- Asking for user input before continuing
+- Validating inputs before moving on to the next step
+- Using interesting colours and icons
+- Testing the game to make sure it does not crash from user input
 
 ## Technologies Used
 
 ### Languages Used
 
-This website was made using JavaScript, HTML and CSS.
+This website was made using Python.
 
 ### Frameworks, Libraries & Programs Used
 
-[Balsamiq](https://balsamiq.com/givingback/free/classroom/) - Used to create wireframes.
+[Lucidchart](https://www.lucidchart.com/) - To build a flowchart.
 
 [Github](https://github.com/Code-Institute-Org/ci-full-template) - To save and store files for the website.
 
@@ -210,15 +188,7 @@ This website was made using JavaScript, HTML and CSS.
 
 [Font Awesome](https://fontawesome.com/) - For the icons and the favicon.
 
-[Coolors](https://coolors.co/) - For inspiration for a colour palette.
-
-[Art In Context](https://artincontext.org/color-palette-generator/) - To build a custom colour palette.
-
-[EightShapes Contrast Grid](https://contrast-grid.eightshapes.com/) - To improve accessibilty with colours.
-
-Google Chrome Development Tools - To test the code as I was writing it, and to troubleshoot and isolate issues with styling, as well as test accessibilty with Lighthouse.
-
-[Wave](https://wave.webaim.org/) - To evaluate accessibility.
+[Python OOP Tutorial Playlist by Corey Shafer](https://www.youtube.com/playlist?list=PL-osiE80TeTsqhIuOqKhwlXsIBIdSeYtc) - To learn how to use Python.
 
 [Favicon](https://favicon.io/) - To convert the favicon from an icon.
 
@@ -230,7 +200,7 @@ Google Chrome Development Tools - To test the code as I was writing it, and to t
 
 ## Deployment & Development
 
-### ***Playing on a Local machine or via Gitpod Terminal:***
+### Playing on a Local machine or via Gitpod Terminal
 This project was developed using a [specialized Code Institute template](https://github.com/Code-Institute-Org/python-essentials-template) which simulates a terminal in the web browser. Due to this, I optimized the game to work by deploying the [final version on Heroku](), and I do not recommend playing it locally. I have included this section for completeness.  
 1. Navigate to the [GitHub repository](https://github.com/kellie-cat/fed-the-bees), and follow [these steps to clone the project](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) into your IDE of choice.   
    
@@ -238,12 +208,12 @@ This project was developed using a [specialized Code Institute template](https:/
   
 1. **Create** the **virtual environment** with the terminal command **"python3 -m venv venv".** Once complete add the "venv" file to you're ".gitignore" file and use the terminal command **"venv\Scripts\activate.bat" to activate it.**
    
-   * ***IMPORTANT*** If developing locally on your device, ensure you **set up/activate the virtual environment before installing/generating the requirements.txt file**; failure to do this will pollute your machine and put other projects at 
+   * **IMPORTANT** If developing locally on your device, ensure you **set up/activate the virtual environment before installing/generating the requirements.txt file**; failure to do this will pollute your machine and put other projects at 
  
 1. **Install the requirements** listed in requirements.txt using the terminal command  **"pip3 install -r requirements.txt"**
    * Kindly note that since I developed the project from scratch and installed the required libraries as progressed **I have already included a requirements.txt for this app** by using the terminal command **"pip3 freeze > requirements.txt"** to generate it.
 
-## ***Final Deployment to Heroku:***  
+## Final Deployment to Heroku
   
 The project was deployed to [Heroku](https://www.heroku.com) using the below procedure:-    
   
@@ -257,7 +227,7 @@ The project was deployed to [Heroku](https://www.heroku.com) using the below pro
 1. **Click** the button labelled **"Reveal Config Vars"** and **enter** the **"key" as port**, the **"value" as 8000** and **click** the **"add"** button.
 1. Scroll down to the **buildpacks section of the settings page** and click the button labeled **" add buildpack," select "Python," and click "Save Changes"**.
 1. **Repeat step 11 but** this time **add "node.js" instead of python**. 
-   * ***IMPORTANT*** The buildpacks must be in the correct order. If node.js is listed first under this section, you can click on python and drag it upwards to change it to the first buildpack in the list.
+   * **IMPORTANT** The buildpacks must be in the correct order. If node.js is listed first under this section, you can click on python and drag it upwards to change it to the first buildpack in the list.
 1. Scroll back to the top of the settings page, and **navigate to the "Deploy" tab.**
 1. From the deploy tab **select Github as the deployment method**.
 1. **Confirm** you want to **connect to GitHub**.
@@ -273,8 +243,6 @@ The game was tested as it was built with Python, using the commands **pylint** a
 The relevant validator for Python, [Code Institute PEP8 Python Linter](https://pep8ci.herokuapp.com/) was used to check the code.
 
 ![Python validation]( "Screenshot of Python Validation")
-
-
 
 ### Resolved Bugs
 
@@ -294,6 +262,7 @@ There are no unfixed bugs in Free the Bees.
 ### Code Used
 
 - [Kera Cudmore's README.md for the Bully Book Club](https://github.com/kera-cudmore/Bully-Book-Club)
+- [David Bower's README.md for Battleships](https://github.com/dnlbowers/battleships/blob/main/README.md)
 - [Python OOP Tutorial Playlist by Corey Shafer](https://www.youtube.com/playlist?list=PL-osiE80TeTsqhIuOqKhwlXsIBIdSeYtc)
 - [Geeks for Geeks leeson on ASCII art](https://www.geeksforgeeks.org/python-ascii-art-using-pyfiglet-module/)
 
