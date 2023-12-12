@@ -41,14 +41,14 @@ def get_player_name():
             break
         if PLAYER.isnumeric():
             print("Numbers on their own don't count! Try a name"
-                  " with letters or characters too")
+                  " with letters or \ncharacters too")
         elif len(PLAYER.strip()) <= 2:
             print(f"'{PLAYER}' is not a valid choice, tell the "
-                  "friendly bees your name with a few more letters"
+                  "friendly bees your name with a few more\n letters"
                   " or characters")
         else:
             print("That name is not valid, please enter a name with "
-                  "letters, or characters, bees don't like strangers!")
+                  "letters, or characters.\nBees don't like strangers!")
     return PLAYER
 
 
@@ -90,7 +90,7 @@ def guess_bee_location(hive):
                     type_effect("That is outside the hive. Pick a number 1-8")
             except ValueError as e:
                 print("That's not a valid choice, it gave an error: "
-                      "Please select a valid row by picking a number"
+                      "\nPlease select a valid row by picking a number"
                       " from 1-8, then enter")
 
         while True:
@@ -103,7 +103,7 @@ def guess_bee_location(hive):
                     print("That is outside the hive. Pick a number 1-8")
             except ValueError:
                 print("That's not a valid choice, it gave an error: "
-                      "Please select a valid column by picking a number"
+                      "\nPlease select a valid column by picking a number"
                       " from 1-8, then enter")
         return guess_row, guess_column
 
@@ -196,7 +196,7 @@ def play_game():
         print(Col.G + (ascii_art.GAME_OVER) + Col.RESET)
     else:
         type_effect(f'Bad luck, maybe you can feed more bees'
-                    ' next time.\n That is this round of Free '
+                    ' next time.\nThat is this round of Free '
                     'the Bees over!')
         print(Col.R + (ascii_art.GAME_OVER) + Col.RESET)
 
