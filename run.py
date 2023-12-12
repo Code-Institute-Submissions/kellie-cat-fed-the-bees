@@ -118,6 +118,7 @@ def keep_playing(question):
             return True
         if player_input == 'N':
             type_effect('Bye for now. Come back again soon to help more bees!')
+            print(ascii_art.GOODBYE)
             sys.exit()
         else:
             type_effect("Invalid choice. Please enter 'Y' or 'N'")
@@ -134,6 +135,7 @@ def finish_game():
             play_game()
         else:
             type_effect('Bye for now. Come back again soon to help more bees!')
+            print(ascii_art.GOODBYE)
             sys.exit()
 
 
@@ -191,10 +193,12 @@ def play_game():
     if success != 0:
         type_effect(f'Well done for feeding {success} bees!\n'
                     'That is this round of Free the Bees over!')
+        print(Col.G + (ascii_art.GAME_OVER) + Col.RESET)
     else:
         type_effect(f'Bad luck, maybe you can feed more bees'
                     ' next time.\n That is this round of Free '
                     'the Bees over!')
+        print(Col.R + (ascii_art.GAME_OVER) + Col.RESET)
 
     finish_game()
 
