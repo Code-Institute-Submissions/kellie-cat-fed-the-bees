@@ -23,30 +23,18 @@ def print_intro():
     """
     Displays title_art and game instructions
     """
-    type_effect(Col.Y + 'Welcome to...\n')
+    type_effect('Welcome to...\n')
     print((ascii_art.TITLE_ART) + Col.RESET)
     input("Press enter to read the game instructions...\n")
-    type_effect("In a dystopian time, bees are hungry and can't escape their"
-                " hive")
-    type_effect('You have stumbled across a beehive and want to help')
-    type_effect('Try to give the bees nectar without destroying their home')
-    type_effect(f'The hive is {SIZE} squares long and high')
-    type_effect(f'There are {NUM_BEES} bees to find in each hive')
-    type_effect('Feed as many bees as you can so they can survive!')
-    type_effect(f'You only have {TURNS} drops of nectar to give them')
-    type_effect('Feed the bees by guessing a coordinate you think they are at')
-    type_effect('When prompted, input a number for x-axis (horizontal rows) '
-                'first')
-    type_effect('Then a number for the y-axis (vertical columns)\n')
-
+    print((ascii_art.INSTRUCTIONS) + Col.RESET)
 
 def get_player_name():
     """
     Asks for player name and validates it
     """
     while True:
-        PLAYER = input(Col.C + "Please tell us your name so the bees"
-                       " can say thanks!\n" + Col.RESET)
+        PLAYER = input(Col.C + "Please tell us your name to start"
+                       "feeding the bees!\n" + Col.RESET)
         if len(PLAYER.strip()) >= 2 and not PLAYER.isnumeric():
             type_effect(f'Thanks for helping the bees, {PLAYER}!\n')
             break
