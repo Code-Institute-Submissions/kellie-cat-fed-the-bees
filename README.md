@@ -242,7 +242,7 @@ The game was tested as it was built with Python, using the commands **pylint** a
 
 The relevant validator for Python, [Code Institute PEP8 Python Linter](https://pep8ci.herokuapp.com/) was used to check the code.
 
-![Python validation]( "Screenshot of Python Validation")
+![Python validation](docs/screenshots/pp3-pep8-validation.png "Screenshot of Python Validation")
 
 ### Resolved Bugs
 

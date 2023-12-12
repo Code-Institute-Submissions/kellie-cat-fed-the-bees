@@ -1,6 +1,7 @@
 import unicodedata
 from random import randint
 import pyfiglet
+import os
 from displayeffects import GameColours as Col
 from displayeffects import type_effect
 from displayeffects import clear_console
@@ -195,9 +196,9 @@ def play_game():
     print_hive(PLAYER_VISIBLE_HIVE)
 
     if success != 0:
-        type_effect(f'Well done for feeding {success} bees, {PLAYER}!')
+        type_effect(f'Well done for feeding {success} bees!')
     else:
-        type_effect(f'Bad luck, {PLAYER}, maybe you can feed more bees'
+        type_effect(f'Bad luck, maybe you can feed more bees'
                     ' next time.')
 
     finish_game()
