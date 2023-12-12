@@ -142,7 +142,10 @@ def finish_game():
         play_game()
     elif keep_playing(question) is False:
         type_effect('Bye for now. Come back again soon to help more bees!')
-        SystemExit()yssdef play_game():
+        SystemExit()
+
+
+def play_game():
     """
     Runs game, clears 1st line, randomly creates the coordinates for hidden
     bees and places them in hidden hive, gets player name, asks if player
