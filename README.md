@@ -251,6 +251,20 @@ This game was made using Python.
 
 [Shields](https://shields.io/) - To display the shield icons in this document.
 
+## Data Flow
+
+The programme starts with the
+1. play_game() function which calls the rest of the functions
+1. clear_console() removes the 1st line in the Heroku terminal for a cleaner look
+1. print_intro() shows the Title Art and Introductions
+1. get_player_name() asks for player input and validates it
+1. print_hive() creates the hives for the bees to go into and be displayed on
+1. computer_create_bees() makes random co-ordinates for the bees to hide and checks they don't duplicate
+1. While turns are still left, guess_bee_location() asks for player input to guess bee location and validates it
+1. In play_game(), the guess is checked against the random coordinates and the player is given feedback
+1. At the end of the game, if success is zero, the GAME_OVER art is printed in Red, but if success is not zero, it is printed in Green.
+1. finish_game() can restart the application by clearing the inputs, or exit the program.
+
 ## Deployment & Development
 
 ### Playing on a Local machine or via Gitpod Terminal

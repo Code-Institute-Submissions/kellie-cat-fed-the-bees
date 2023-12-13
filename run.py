@@ -94,7 +94,7 @@ def guess_bee_location(hive):
                 if guess_row not in range(0, 8):
                     type_effect("That is outside the hive. Pick a number 1-8")
             except ValueError:
-                print("That's not a valid choice, it gave an error: "
+                print("That's not a valid choice, it gave an error. "
                       "\nPlease select a valid row by picking a number"
                       " from 1-8, then enter")
 
@@ -107,7 +107,7 @@ def guess_bee_location(hive):
                 if guess_column not in range(0, 8):
                     print("That is outside the hive. Pick a number 1-8")
             except ValueError:
-                print("That's not a valid choice, it gave an error: "
+                print("That's not a valid choice, it gave an error. "
                       "\nPlease select a valid column by picking a number"
                       " from 1-8, then enter")
         return guess_row, guess_column
@@ -151,13 +151,12 @@ def play_game():
     wants to continue game, takes a turn, gives feedback, prints the hive
     with gueses and finishes game
     """
-    clear_console()
-
     miss = "\U00002B21"
     found_bee = "\U0001F41D"
-
-    success = 0
     computer_create_bees(PLAYER_BEE_HIVE)
+    success = 0
+
+    clear_console()
 
     print_intro()
 
