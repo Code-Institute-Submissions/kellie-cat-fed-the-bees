@@ -81,8 +81,6 @@ def computer_create_bees(hive):
         random_bees.append((bee_row, bee_column))
         hive[bee_row][bee_column] = "X"
 
-    print(random_bees)
-
 
 def guess_bee_location(hive):
     """
