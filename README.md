@@ -346,6 +346,12 @@ Continue valdidation
 | Continue | Y / N | lowercase | A lower case letter is converted with .upper and accepted | NA |
 | - | - | An invalid character | not == 'Y' or 'N' | "Invalid choice. Please enter 'Y' or 'N'" |
 
+### User Stories
+
+I asked my fellow Code Instituters on Slack for advice in the channel Peer Code Review and Niclas_5P kindly said that no bees were fed until the 3rd round. Because of this, I decided to increase the number of bees to 12 and the number of turns to 8 to make the game a bit more satisfactory for players.
+
+![User story](docs/screenshots/pp3-user-story.png)
+
 ### Resolved Bugs
 
 Many issues were discovered and resolved throughout the project.

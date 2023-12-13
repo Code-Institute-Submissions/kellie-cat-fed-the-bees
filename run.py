@@ -8,8 +8,8 @@ from displayeffects import type_effect
 import asciiart
 
 SIZE = 8
-NUM_BEES = 10
-TURNS = 5
+NUM_BEES = 15
+TURNS = 8
 
 # Where computer places their bees randomly
 PLAYER_BEE_HIVE = [[" "] * SIZE for i in range(SIZE)]
@@ -69,12 +69,11 @@ def computer_create_bees(hive):
     random_bees = []
 
     for i in range(NUM_BEES):
-        bee_row, bee_column = randint(0, SIZE - 1), randint(0, SIZE - 1)
-
+        bee_row, bee_column = randint(0, (SIZE - 1)), randint(0, (SIZE - 1))
         # Check if the coordinates are already occupied by a bee
         while (bee_row, bee_column) in random_bees:
-            bee_row, bee_column = randint(0, SIZE - 1), randint(0, SIZE - 1)
-
+            bee_row, bee_column = randint(0, (SIZE - 1)), randint(0, (SIZE
+                                                                  - 1))
         random_bees.append((bee_row, bee_column))
         hive[bee_row][bee_column] = "X"
 
@@ -89,9 +88,9 @@ def guess_bee_location(hive):
             try:
                 guess_row = int(input(Col.C + 'Guess which row a bee is'
                                       ' hiding on:\n' + Col.RESET)) - 1
-                if guess_row in range(0, 8):
+                if guess_row in range(0, SIZE):
                     break
-                if guess_row not in range(0, 8):
+                if guess_row not in range(0, SIZE):
                     type_effect("That is outside the hive. Pick a number 1-8")
             except ValueError:
                 print("That's not a valid choice, it gave an error. "
@@ -102,9 +101,9 @@ def guess_bee_location(hive):
             try:
                 guess_column = int(input(Col.C + 'Guess which column a bee'
                                          ' is hiding on:\n' + Col.RESET)) - 1
-                if guess_column in range(0, 8):
+                if guess_column in range(0, SIZE):
                     break
-                if guess_column not in range(0, 8):
+                if guess_column not in range(0, SIZE):
                     print("That is outside the hive. Pick a number 1-8")
             except ValueError:
                 print("That's not a valid choice, it gave an error. "
