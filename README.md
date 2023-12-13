@@ -4,7 +4,7 @@ Free the Bees is a command line game built in Python designed based on the idea 
 Bees are crucial to the planet as we know it. Colony Collapse Disorder was first seen in Southern and Western Europe in 1998, and it was named in 2006 in North America. It is now a world wide occurance that we still don't fully understand.
 This game aims to provide entertainment while highlighting the importance of these very clever insects.
 
-![Screenshot of Free the Bees]( "Free the Bees on Am I Responsive")
+![Screenshot of Free the Bees](docs/screenshots/pp3-free-the-bees-heroku.png "Free the Bees on Heroku")
 
 [View Free the Bees Live Site](https://fed-the-bees-4595451a08dc.herokuapp.com/)
 
@@ -19,6 +19,7 @@ This game aims to provide entertainment while highlighting the importance of the
 - [FREE THE BEES](#free-the-bees)
   - [CONTENTS](#contents)
   - [User Experience (UX)](#user-experience-ux)
+    - [How to Play](#how-to-play)
     - [Key information for the site](#key-information-for-the-site)
       - [Goals](#goals)
       - [First Time User Goals](#first-time-user-goals)
@@ -67,11 +68,11 @@ Free the Bees is inspired by the well-known game Battleships, with a few key dif
 
 ### Key information for the site
 
-- A Title Art welcomes the new user to the game and invites them to commence playing.
-- A back story and instructions draw the player in and asks them for their name at the end - input required is highlighted by a different colour.
-- The users guess where they think they can help the bees, and they are rewarded with a unicode bee if they are successful, or a unicode empty hexagon commisserates if they didn't find a bee.
-- At each turn, the user confirms they would like to keep playing, so they don't get stuck in a long loop.
-- Finally, their score is displayed and the user is invited to refresh the game to play again or exit the program.
+1. A Title Art welcomes the new user to the game and invites them to commence playing.
+1. A back story and instructions draw the player in and asks them for their name at the end - input required is highlighted by a different colour.
+1. The users guess where they think they can help the bees, and they are rewarded with a unicode bee if they are successful, or a unicode empty hexagon commisserates if they didn't find a bee.
+1. At each turn, the user confirms they would like to keep playing, so they don't get stuck in a long loop.
+1. Finally, their score is displayed and the user is invited to refresh the game to play again or exit the program.
 
 #### Goals
 
@@ -105,7 +106,9 @@ When user input is needed, the text turns Cyan to alert the player that their in
 
 [Geeks for Geeks](https://www.geeksforgeeks.org/python-ascii-art-using-pyfiglet-module/) gave a tutorial on ASCII art using the pyfiglet module and I decided to use a font that resembled the hexagons in a bee hive because it is easy to read and on theme.
 
-![Screenshot of Welcome Art]( "Screenshot of fonts")
+![Free the Bees in Bubble font](docs/screenshots/pp3-font-test.png "Testing the font with FREE THE BEES in black and white")
+
+Later on you will see I found the [ASCII ART Archive](https://www.asciiart.eu/text-to-ascii-art) and decided to make things a bit more impactful with a border and some more honeycomb, but I still stuck with the bubble font.
 
 ### Lucidchart
 
@@ -222,13 +225,14 @@ If more resources opened up, I could add some additional features:
 
 ### Accessibility
 
-I have tried to be inclusive for everyone when coding this website by
+I have tried to be inclusive for everyone when coding this project by
 
 - Using clear instructions
 - Asking for user input before continuing
 - Validating inputs before moving on to the next step
 - Using interesting colours and icons
 - Testing the game to make sure it does not crash from user input
+- Using ARIA labels in the README
 
 ## Technologies Used
 
@@ -240,21 +244,19 @@ This game was made using Python.
 
 [Lucidchart](https://www.lucidchart.com/) - To build a flowchart.
 
-[Github](https://github.com/Code-Institute-Org/ci-full-template) - To save and store files for the website.
+[Github](https://github.com/) - To save and store files for the project.
+
+[Heroku](https://dashboard.heroku.com/apps) - To deploy the game.
 
 [Codeanywhere](https://dashboard.codeanywhere.com/) - To write the code.
 
-[Geeks for Geeks](https://www.geeksforgeeks.org/python-ascii-art-using-pyfiglet-module/) - To learn how to import pyfiglet to make ASCII Title Art.
-
-[Python OOP Tutorial Playlist by Corey Shafer](https://www.youtube.com/playlist?list=PL-osiE80TeTsqhIuOqKhwlXsIBIdSeYtc) - To learn how to use Python.
-
-- [Python Tutorial Series by Knowledge Mavens](https://www.youtube.com/watch?v=xz9GrOwQ_5E) - To try to simplify the logic.
-
 [ASCII Art Generator](https://www.asciiart.eu/text-to-ascii-art) - For ASCII art.
 
-[Am I Responsive?](https://ui.dev/amiresponsive) - To display the website on a range of screen sizes.
+[Colorama Library](https://pypi.org/project/colorama/) - For colours.
 
-[Python validator](https://pythontutor.com/visualize.html#mode=display) - To test Python.
+[Python Tutor](https://pythontutor.com/visualize.html#mode=display) - To test Python code.
+
+[Code Insitute PEP8](https://pep8ci.herokuapp.com/) - To validate Python code.
 
 [Shields](https://shields.io/) - To display the shield icons in this document.
 
@@ -298,7 +300,7 @@ The project was deployed to [Heroku](https://www.heroku.com) using the below pro
 
 ## Testing
 
-The game was tested as it was built with Python, using the commands **pylint** and **pystylecode**.
+The game was tested as it was built with Python, using the command **pylint**.
 
 The relevant validator for Python, [Code Institute PEP8 Python Linter](https://pep8ci.herokuapp.com/) was used to check the code.
 
@@ -342,10 +344,10 @@ There are no unfixed bugs in Free the Bees.
 
 ### Code Used
 
+- [Code Institute Python Template](https://github.com/Code-Institute-Org/python-essentials-template)
 - [Kera Cudmore's README.md for the Bully Book Club](https://github.com/kera-cudmore/Bully-Book-Club)
 - [David Bower's README.md for Battleships](https://github.com/dnlbowers/battleships/blob/main/README.md)
 - [Python OOP Tutorial Playlist by Corey Shafer](https://www.youtube.com/playlist?list=PL-osiE80TeTsqhIuOqKhwlXsIBIdSeYtc)
-- [Geeks for Geeks leeson on ASCII art](https://www.geeksforgeeks.org/python-ascii-art-using-pyfiglet-module/)
 - [Python Tutorial Series by Knowledge Mavens](https://www.youtube.com/watch?v=xz9GrOwQ_5E)
 - [Patt Hoege for the idea to shorten the Colorama commands](https://github.com/patthoege/hangmangame-pp3-python)
 
@@ -359,8 +361,8 @@ Thank you so much to everyone who helped me in this project.
 
 - Corey Shafer from YouTube [Python OOP Tutorial Playlist](https://www.youtube.com/playlist?list=PL-osiE80TeTsqhIuOqKhwlXsIBIdSeYtc). Nothing about classes, or Python in general, really clicked until these. I should have made time to watch them earlier.
 
-- David Bowers, my Code Institute Mentor, thank you for your patience in the face of my panic and hopelessness.
+- Sarah from Tutor Support and Eva from Student Care - thank you for the help.
 
 - Rohit Sharma, for fitting me in for an extra mentor session to help me simplify the tangle I created.
 
-- My husband, William Wong, for feeding me and giving me peace to code.
+- David Bowers, my Code Institute Mentor, thank you for your patience in the face of my panic and hopelessness. I really appreciate your positivity in countering the imposter syndrome!

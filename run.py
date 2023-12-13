@@ -1,6 +1,5 @@
 import unicodedata
 from random import randint
-import pyfiglet
 import os
 import sys
 from displayeffects import GameColours as Col
