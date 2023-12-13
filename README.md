@@ -1,6 +1,6 @@
 # FREE THE BEES GAME IN PYTHON
 
-Free the Bees is a command line game built in Python designed based on the idea of Battleships... but for people who would prefer not to think about explosions. A simple yellow display brightens peoples day and they can enjoy the fun of finding the bees and feeding them.
+Free the Bees is a command line application built in Python designed based on the idea of Battleships... but for people who would prefer not to think about explosions. A simple yellow display brightens peoples day and they can enjoy the fun of finding the bees and feeding them.
 Bees are crucial to the planet as we know it. Colony Collapse Disorder was first seen in Southern and Western Europe in 1998, and it was named in 2006 in North America. It is now a world wide occurance that we still don't fully understand.
 This game aims to provide entertainment while highlighting the importance of these very clever insects.
 
@@ -30,8 +30,12 @@ This game aims to provide entertainment while highlighting the importance of the
     - [Lucidchart](#lucidchart)
   - [Features](#features)
     - [General features](#general-features)
-      - [The Welcome Page](#the-welcome-page)
-      - [The Game Page](#the-game-page)
+      - [The Title Art](#the-title-art)
+      - [The Backstory and Instructions](#the-backstory-and-instructions)
+      - [The Hive](#the-hive)
+      - [Feedback](#feedback)
+      - [Final Feedback](#final-feedback)
+      - [Finish the Game](#finish-the-game)
     - [Future Implementations](#future-implementations)
     - [Accessibility](#accessibility)
   - [Technologies Used](#technologies-used)
@@ -41,6 +45,7 @@ This game aims to provide entertainment while highlighting the importance of the
     - [Playing on a Local machine or via Gitpod Terminal](#playing-on-a-local-machine-or-via-gitpod-terminal)
     - [Final Deployment to Heroku](#final-deployment-to-heroku)
   - [Testing](#testing)
+    - [Input Validations](#input-validations)
     - [Resolved Bugs](#resolved-bugs)
     - [Known Bugs](#known-bugs)
   - [Credits](#credits)
@@ -52,18 +57,18 @@ This game aims to provide entertainment while highlighting the importance of the
 
 ## User Experience (UX)
 
-Free the Bees is a command line game played on one screen with elements that update to progress the game and give the user feedback. It is deployed to Heroku to ensure accessibility for users.
+Free the Bees is a command line application game played on one screen with elements that update to progress the game and give the user feedback. It is deployed to Heroku to ensure a seamless user experience for players.
 
 ### How to Play
 
 Free the Bees is inspired by the well-known game Battleships, with a few key differences. Instead of trying to hurt your opponent, the aim is to help the bees!
 
-1. Load the game and follow the prompts to read the instructions
-1. Enter a player name
+1. Load the game and follow the prompts to read the instructions.
+1. Enter a player name.
 1. Confirm you would like to play by answering 'Would you like to keep playing Free the Bees?' with Y.
 1. Guess a row and then a column you think the bee is stuck at
 1. Did you feed a bee? The program will tell you and then, when you have confirmed you would like to continue, you will see your guess in the hive. A bee if you found one, an empty hexagon if you missed.
-1. You have a limited amount of nectar (number of guesses) to help the bees
+1. You have a limited amount of nectar (number of guesses) to help the bees.
 1. If you have another urgent task, you can leave the game when asked 'Would you like to keep playing Free the Bees?' Enter N.
 
 ### Key information for the site
@@ -131,7 +136,7 @@ Lucidchart Edited Version
 #### The Title Art
 
 - When users first load the page, the Title Art is displayed to
-  - welcome the user,
+  - welcome the user
   - introduce the name of the game
   - and let them know who coded the game
 
@@ -140,9 +145,9 @@ Title Art
 
 #### The Backstory and Instructions
 
-- Once the user has confirmed they are ready, the backstory of the game is revealed with instructions on how to play. 
-- The player is asked to enter their name and this is validated before moving on.
-- Then the player is asked to confirm they would like to proceed.
+- Once the user has confirmed they are ready, the backstory of the game is revealed with instructions on how to play
+- The player is asked to enter their name and this is validated before moving on
+- Then the player is asked to confirm they would like to proceed
 
 ![A screenshot of the backstory](docs/screenshots/pp3-instructions.png "Screenshot of the backstory")
 Backstory
@@ -196,24 +201,6 @@ Final feedback
 ![A screenshot of finish game](docs/screenshots/pp3-finish-game.png "Screenshot of finish game")
 Goodbye art
 
-
-#### Validations
-If the player enters an invalid answer
-- they have a chance to retry without crashing the game
-- and they receive some feedback on how to make a valid guess
-
-![A screenshot of invalid input](docs/screenshots/pp3-name-validation.png "Screenshot of name validation")
-Name validation
-
-![A screenshot of invalid input](docs/screenshots/pp3-row-validation.png "Screenshot of row validation")
-Row validation
-
-![A screenshot of invalid input](docs/screenshots/pp3-column-validation.png "Screenshot of column validation")
-Column valdidation
-
-![A screenshot of invalid input](docs/screenshots/pp3-player-want-to-continue.png "Screenshot of continue validation")
-Continue valdidation
-
 ### Future Implementations
 
 This project meets the requirements and is ready to play without issues.
@@ -263,19 +250,20 @@ This game was made using Python.
 ## Deployment & Development
 
 ### Playing on a Local machine or via Gitpod Terminal
-This project was developed using a [specialized Code Institute template](https://github.com/Code-Institute-Org/python-essentials-template) which simulates a terminal in the web browser. Due to this, I optimized the game to work by deploying the [final version on Heroku](), and I do not recommend playing it locally. I have included this section for completeness.  
-1. Navigate to the [GitHub repository](https://github.com/kellie-cat/fed-the-bees), and follow [these steps to clone the project](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) into your IDE of choice.   
+This project was developed using a [specialized Code Institute template](https://github.com/Code-Institute-Org/python-essentials-template) which simulates a terminal in the web browser. Due to this, I optimized the game to work by deploying the [final version on Heroku](https://fed-the-bees-4595451a08dc.herokuapp.com/), and I do not recommend playing it locally. I have included this section only for completeness.
+
+1. Navigate to the [GitHub repository](https://github.com/kellie-cat/fed-the-bees), and follow [these steps to clone the project](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) into your IDE of choice
    
    * **Gitpod** only **requires** you to have the **web extension** installed and **click** the **green Gitpod button** from the repositories main page. If you are **using Gitpod** please **skip step 2** below as you do not need a virtual environment to protect your machine.  
   
 1. **Create** the **virtual environment** with the terminal command **"python3 -m venv venv".** Once complete add the "venv" file to you're ".gitignore" file and use the terminal command **"venv\Scripts\activate.bat" to activate it.**
    
-   * **IMPORTANT** If developing locally on your device, ensure you **set up/activate the virtual environment before installing/generating the requirements.txt file**; failure to do this will pollute your machine and put other projects at 
+   * **IMPORTANT** If developing locally on your device, ensure you **set up/activate the virtual environment before installing/generating the requirements.txt file**; failure to do this will pollute your machine and put other projects at risk.
  
 1. **Install the requirements** listed in requirements.txt using the terminal command  **"pip3 install -r requirements.txt"**
    * Kindly note that since I developed the project from scratch and installed the required libraries as progressed **I have already included a requirements.txt for this app** by using the terminal command **"pip3 freeze > requirements.txt"** to generate it.
 
-## Final Deployment to Heroku
+### Final Deployment to Heroku
   
 The project was deployed to [Heroku](https://www.heroku.com) using the below procedure:-    
   
@@ -307,6 +295,24 @@ The relevant validator for Python, [Code Institute PEP8 Python Linter](https://p
 ![Python validation](docs/screenshots/pp3-pep8-validation.png "Screenshot of Python Validation")
 
 It was manually tested by playing many times and trying to cause an error. As shown in the validation section above, the rigorous validation means that the user cannot break the code by inputing an unexpected value. Their experience is smooth because the code tells them what to input to move on or exit.
+
+
+#### Input Validations
+If the player enters an invalid answer
+- they have a chance to retry without crashing the game
+- and they receive some feedback on how to make a valid guess
+
+![A screenshot of invalid input](docs/screenshots/pp3-name-validation.png "Screenshot of name validation")
+Name validation
+
+![A screenshot of invalid input](docs/screenshots/pp3-row-validation.png "Screenshot of row validation")
+Row validation
+
+![A screenshot of invalid input](docs/screenshots/pp3-column-validation.png "Screenshot of column validation")
+Column valdidation
+
+![A screenshot of invalid input](docs/screenshots/pp3-player-want-to-continue.png "Screenshot of continue validation")
+Continue valdidation
 
 ### Resolved Bugs
 

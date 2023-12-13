@@ -10,7 +10,6 @@ import asciiart
 SIZE = 8
 NUM_BEES = 10
 TURNS = 5
-PLAYER = ''
 
 # Where computer places their bees randomly
 PLAYER_BEE_HIVE = [[" "] * SIZE for i in range(SIZE)]
@@ -33,22 +32,21 @@ def get_player_name():
     Asks for player name and validates it
     """
     while True:
-        PLAYER = input(Col.C + "Please tell us your name to start "
+        player = input(Col.C + "Please tell us your name to start "
                        "feeding the bees!\n" + Col.RESET)
-        if len(PLAYER.strip()) >= 2 and not PLAYER.isnumeric():
-            type_effect(f'Thanks for helping the bees, {PLAYER}!\n')
+        if len(player.strip()) >= 2 and not player.isnumeric():
+            type_effect(f'Thanks for helping the bees, {player}!\n')
             break
-        if PLAYER.isnumeric():
+        if player.isnumeric():
             print("Numbers on their own don't count! Try a name"
                   " with letters or \ncharacters too")
-        elif len(PLAYER.strip()) <= 2:
-            print(f"'{PLAYER}' is not a valid choice, tell the "
+        elif len(player.strip()) <= 2:
+            print(f"'{player}' is not a valid choice, tell the "
                   "friendly bees your name with a few more\n letters"
                   " or characters")
         else:
             print("That name is not valid, please enter a name with "
                   "letters, or characters.\nBees don't like strangers!")
-    return PLAYER
 
 
 def print_hive(hive):
@@ -95,7 +93,7 @@ def guess_bee_location(hive):
                     break
                 if guess_row not in range(0, 8):
                     type_effect("That is outside the hive. Pick a number 1-8")
-            except ValueError as e:
+            except ValueError:
                 print("That's not a valid choice, it gave an error: "
                       "\nPlease select a valid row by picking a number"
                       " from 1-8, then enter")
@@ -202,8 +200,8 @@ def play_game():
                     'That is this round of Free the Bees over!')
         print(Col.G + (asciiart.GAME_OVER) + Col.RESET)
     else:
-        type_effect(f'Bad luck, maybe you can feed more bees'
-                    ' next time.\nThat is this round of Free '
+        type_effect('Bad luck, maybe you can feed more bees '
+                    'next time.\nThat is this round of Free '
                     'the Bees over!')
         print(Col.R + (asciiart.GAME_OVER) + Col.RESET)
 
