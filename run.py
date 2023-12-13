@@ -14,9 +14,9 @@ TURNS = 5
 PLAYER = ''
 
 # Where computer places their bees randomly
-PLAYER_BEE_HIVE = [[" "] * 8 for i in range(SIZE)]
+PLAYER_BEE_HIVE = [[" "] * SIZE for i in range(SIZE)]
 # Where players guesses are displayed
-PLAYER_VISIBLE_HIVE = [[" "] * 8 for i in range(SIZE)]
+PLAYER_VISIBLE_HIVE = [[" "] * SIZE for i in range(SIZE)]
 
 
 def print_intro():

@@ -116,10 +116,12 @@ Lucidchart Edited Version
 #### The Title Art
 
 - When users first load the page, the Title Art is displayed to
-  - welcome the user and 
+  - welcome the user,
   - introduce the name of the game
+  - and let them know who coded the game
 
 ![A screenshot of the Title Art](docs/screenshots/pp3-title-art.png "Screenshot of the Title Art")
+Title Art
 
 #### The Backstory and Instructions
 
@@ -128,6 +130,10 @@ Lucidchart Edited Version
 - Then the player is asked to confirm they would like to proceed.
 
 ![A screenshot of the backstory](docs/screenshots/pp3-instructions.png "Screenshot of the backstory")
+Backstory
+
+![A screenshot of name input](docs/screenshots/pp3-player-name-input.png "Screenshot of name input")
+Name Input
 
 #### The Hive
 After each turn, the user is asked if they would like to
@@ -135,12 +141,14 @@ After each turn, the user is asked if they would like to
 - or exit
 
 ![A screenshot of early exit](docs/screenshots/pp3-early-exit.png "Screenshot of early exit")
+Early exit
 
 Once they have confirmed they would like to proceed, the player sees
   - a visual display of the bee hive where the bees are trapped
   - a request for input a row and column they think the bee is trapped in
 
 ![A screenshot of the hive](docs/screenshots/pp3-hive-continue.png "Screenshot of the hive")
+The Hive
 
 #### Feedback
   - tells the user if they fed a bee
@@ -155,12 +163,15 @@ Once they have confirmed they would like to proceed, the player sees
 
 ![A screenshot of the feedback](docs/screenshots/pp3-duplicate-guess.png "Screenshot of duplicate guess")
 
+- the hive is shown again with a bee at the coordinate the player guess if they successfully fed a bee, or an empty hexagon if they left the bees hungry
+
 #### Final feedback
-If they choose to complete all the turn,when the player is out of turns and the game is over
+If they choose to complete all the turns, when the player is out of turns and the game is over
   - the players get their final score
   - along with some personalised feedback
 
 ![A screenshot of final results](docs/screenshots/pp3-final-positive.png "Screenshot of final results")
+Final feedback
 
 #### Finish the game
  When they have finished, the player is invited 
@@ -168,15 +179,25 @@ If they choose to complete all the turn,when the player is out of turns and the 
 - or exit and the program finishes
 
 ![A screenshot of finish game](docs/screenshots/pp3-finish-game.png "Screenshot of finish game")
+Goodbye art
+
 
 #### Validations
 If the player enters an invalid answer
 - they have a chance to retry without crashing the game
 - and they receive some feedback on how to make a valid guess
 
+![A screenshot of invalid input](docs/screenshots/pp3-name-validation.png "Screenshot of name validation")
+Name validation
+
 ![A screenshot of invalid input](docs/screenshots/pp3-row-validation.png "Screenshot of row validation")
+Row validation
 
 ![A screenshot of invalid input](docs/screenshots/pp3-column-validation.png "Screenshot of column validation")
+Column valdidation
+
+![A screenshot of invalid input](docs/screenshots/pp3-player-want-to-continue.png "Screenshot of continue validation")
+Continue valdidation
 
 ### Future Implementations
 
@@ -185,7 +206,7 @@ If more resources opened up, I could add some additional features:
 
 1. It would be interesting to have the time to work with more features such as the background image, placing the terminal centered in the screen and so on.
 2. Varying the mode from 'easy' to 'difficult' would be helpful to make the game even more useful for people of interest levels. This could be achieved by creating a class for the Hive and asking the using to input a SIZE between say 5 and 15.
-4. Adding game sounds and more exciting animations would increase interest and novelty.
+4. Adding game sounds and exciting animations and more complex artwork would increase interest and novelty.
 
 ### Accessibility
 
@@ -213,11 +234,11 @@ This game was made using Python.
 
 [Geeks for Geeks](https://www.geeksforgeeks.org/python-ascii-art-using-pyfiglet-module/) - To learn how to import pyfiglet to make ASCII Title Art.
 
-[Font Awesome](https://fontawesome.com/) - For the icons and the favicon.
-
 [Python OOP Tutorial Playlist by Corey Shafer](https://www.youtube.com/playlist?list=PL-osiE80TeTsqhIuOqKhwlXsIBIdSeYtc) - To learn how to use Python.
 
-[Favicon](https://favicon.io/) - To convert the favicon from an icon.
+- [Python Tutorial Series by Knowledge Mavens](https://www.youtube.com/watch?v=xz9GrOwQ_5E) - To try to simplify the logic.
+
+[ASCII Art Generator](https://www.asciiart.eu/text-to-ascii-art) - For ASCII art.
 
 [Am I Responsive?](https://ui.dev/amiresponsive) - To display the website on a range of screen sizes.
 
@@ -271,14 +292,35 @@ The relevant validator for Python, [Code Institute PEP8 Python Linter](https://p
 
 ![Python validation](docs/screenshots/pp3-pep8-validation.png "Screenshot of Python Validation")
 
+It was manually tested by playing many times and trying to cause an error. As shown in the validation section above, the rigorous validation means that the user cannot break the code by inputing an unexpected value. Their experience is smooth because the code tells them what to input to move on or exit.
+
 ### Resolved Bugs
 
 Many issues were discovered and resolved throughout the project.
 
 1. Trial and error and patience are key. Many times I tried many lines of code that did not work. I learned to just keep trying. Keep calm. Keep breathing.
-1. **Issue**: Import sys
-   **Cause**:   
-   **Solution**: 
+1. 1. **Issue**: Code not running - 'sys' not found
+   1. **Cause**: I had not imported 'sys' correctly on run.py as I had included it in asciiart.py
+   1. **Solution**: To import sys in every file it is used in
+1. 1. **Issue**: Lines too long in print() or input(), I placed them in a seconded set of () and split them over 2 lines but the white space was shown when the code was run.
+   1. **Cause**: Not understanding all the ways to split lines in Python yet
+   1. **Solution**: Tutor Support - Thank you Sarah. Such a simple solution but Google had failed me this time.
+   Splitting the lines wrapped in '' or "" and correctly indenting them works very nicely.
+1. 1. **Issue**: Code not running - file named 'asciiart' not found
+   1. **Cause**: I had named asciiart without the '.py' at the end
+   1. **Solution**: To make sure naming conventions are followed
+1. 1. **Issue**: On occasion, the random co-ordinates duplicated themselves, to there may only be 9 or even on occasion 8 bees.
+   1. **Cause**: No validation to check if the random co-ordinates had already been returned.
+   1. **Solution**: I appended the random coordinates to a list and added an if statement to run the code again if they already existed in the list.
+1. 1. **Issue**: The hive already being populated if the player chose to play again
+   1. **Cause**: The previous game's co-ordinates were still in play.
+   1. **Solution**: Refreshing the program from the beginning.
+1. 1. **Issue**: User had to input N twice to exit the game
+   1. **Cause**: I had created a double loop within finish_game(). As it already uses keep_playing() logic, I only needed to ask if the return was False once.
+   1. **Solution**: Instead of a second if statement, I coded to exit on else.
+1. 1. **Issue**: So many options, so much time lost
+   1. **Cause**: I found the ASCII Art Archive at the last minute and found it way more intuitive to use and it offered so many options compared to the previous ASCII art generators I had tried, that I ended up getting distracted by adding some more colours instead of focussing on finshing the README!
+   1. **Solution**: Try to find more fun additions earlier in the project, so the deadline isn't stifling my creativity!
 
 ### Known Bugs
 
@@ -292,6 +334,7 @@ There are no unfixed bugs in Free the Bees.
 - [David Bower's README.md for Battleships](https://github.com/dnlbowers/battleships/blob/main/README.md)
 - [Python OOP Tutorial Playlist by Corey Shafer](https://www.youtube.com/playlist?list=PL-osiE80TeTsqhIuOqKhwlXsIBIdSeYtc)
 - [Geeks for Geeks leeson on ASCII art](https://www.geeksforgeeks.org/python-ascii-art-using-pyfiglet-module/)
+- [Python Tutorial Series by Knowledge Mavens](https://www.youtube.com/watch?v=xz9GrOwQ_5E)
 
 ### Content
 
