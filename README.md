@@ -116,7 +116,7 @@ When user input is needed, the text turns Cyan to alert the player that their in
 
 ![Free the Bees in Bubble font](docs/screenshots/pp3-font-test.png "Testing the font with FREE THE BEES in black and white")
 
-Later on you will see I found the [ASCII ART Archive](https://www.asciiart.eu/text-to-ascii-art) and decided to make things a bit more impactful with a border and some more honeycomb, but I still stuck with the bubble font.
+Later on you will see I found the [ASCII ART Archive](https://www.asciiart.eu/text-to-ascii-art) and decided to make things a bit more impactful with a border and some more honeycomb, but I still stuck with the bubble font, and I could remove the pyfiglet module.
 
 ### Lucidchart
 
@@ -244,13 +244,23 @@ This game was made using Python.
 
 [ASCII Art Generator](https://www.asciiart.eu/text-to-ascii-art) - For ASCII art.
 
-[Colorama Library](https://pypi.org/project/colorama/) - For colours.
-
 [Python Tutor](https://pythontutor.com/visualize.html#mode=display) - To test Python code.
 
 [Code Insitute PEP8](https://pep8ci.herokuapp.com/) - To validate Python code.
 
 [Shields](https://shields.io/) - To display the shield icons in this document.
+
+[Colorama Library](https://pypi.org/project/colorama/) - For coloured text.
+
+Unicode - For the bee and hexagon characters.
+
+Random - For randint to generate random integers.
+
+os - To restart the Python Script from the beginning.
+
+sys - To exit the Python console.
+
+time - For the type_effect function.
 
 ## Data Flow
 
@@ -268,6 +278,8 @@ The programme starts with the
 
 As you can see, the data flow was aided by the Lucidchart planning.
 ![Lucidchart](docs/flowcharts/lucidchart-pp3-edited.png)
+
+Other effects and decorations are imported from displayeffects.py and asciiart.py.
 
 ## Deployment & Development
 
@@ -314,12 +326,19 @@ The game was tested as it was built with Python, using the command **pylint**.
 
 The relevant validator for Python, [Code Institute PEP8 Python Linter](https://pep8ci.herokuapp.com/) was used to check the code.
 
-![Python validation](docs/screenshots/pp3-pep8-validation.png "Screenshot of Python Validation")
+![Python validation](docs/screenshots/pp3-pep8-validation.png "Screenshot of Python Validation for run.py")
+For run.py
 
-It was manually tested by playing many times and trying to cause an error. As shown in the validation section above, the rigorous validation means that the user cannot break the code by inputing an unexpected value. Their experience is smooth because the code tells them what to input to move on or exit.
+![Python validation](docs/screenshots/pp3-asciiart-validation.png "Screenshot of Python Validation for asciiart.py")
+For asciiart.py
 
+![Python validation](docs/screenshots/pp3-displayeffect-validation.png "Screenshot of Python Validation for displayeffects.py")
+For displayeffects.py
 
 #### Input Validations
+
+It was manually tested by playing many times and trying to cause an error. As shown, the rigorous validation means that the user cannot break the code by inputing an unexpected value. Their experience is smooth because the code tells them what to input to move on or exit.
+
 If the player enters an invalid answer
 - they have a chance to retry without crashing the game
 - and they receive some feedback on how to make a valid guess
@@ -334,7 +353,7 @@ Row validation
 Column valdidation
 
 ![A screenshot of invalid input](docs/screenshots/pp3-player-want-to-continue.png "Screenshot of continue validation")
-Continue valdidation
+Continue validation
 
 | Stage | Expected input | Invalid input | Management | Feedback |
 | ------ | ------ | ------ | ------ | ----- |
@@ -357,26 +376,26 @@ I asked my fellow Code Instituters on Slack for advice in the channel Peer Code 
 Many issues were discovered and resolved throughout the project.
 
 1. Trial and error and patience are key. Many times I tried many lines of code that did not work. I learned to just keep trying. Keep calm. Keep breathing.
-1. 1. **Issue**: Code not running - 'sys' not found
-   1. **Cause**: I had not imported 'sys' correctly on run.py as I had included it in asciiart.py
-   1. **Solution**: To import sys in every file it is used in
+1. 1. **Issue**: Code not running - 'sys' not found.
+   1. **Cause**: I had not imported 'sys' correctly on run.py as I had included it in asciiart.py.
+   1. **Solution**: To import sys in every file it is used in.
 1. 1. **Issue**: Lines too long in print() or input(), I placed them in a seconded set of () and split them over 2 lines but the white space was shown when the code was run.
-   1. **Cause**: Not understanding all the ways to split lines in Python yet
+   1. **Cause**: Not understanding all the ways to split lines in Python yet.
    1. **Solution**: Tutor Support - Thank you Sarah. Such a simple solution but Google had failed me this time.
    Splitting the lines wrapped in '' or "" and correctly indenting them works very nicely.
-1. 1. **Issue**: Code not running - file named 'asciiart' not found
-   1. **Cause**: I had named asciiart without the '.py' at the end
-   1. **Solution**: To make sure naming conventions are followed
+1. 1. **Issue**: Code not running - file named 'asciiart' not found.
+   1. **Cause**: I had named asciiart without the '.py' at the end.
+   1. **Solution**: To make sure naming conventions are followed.
 1. 1. **Issue**: On occasion, the random co-ordinates duplicated themselves, to there may only be 9 or even on occasion 8 bees.
    1. **Cause**: No validation to check if the random co-ordinates had already been returned.
    1. **Solution**: I appended the random coordinates to a list and added an if statement to run the code again if they already existed in the list.
-1. 1. **Issue**: The hive already being populated if the player chose to play again
+1. 1. **Issue**: The hive already being populated if the player chose to play again.
    1. **Cause**: The previous game's co-ordinates were still in play.
    1. **Solution**: Refreshing the program from the beginning.
-1. 1. **Issue**: User had to input N twice to exit the game
+1. 1. **Issue**: User had to input N twice to exit the game.
    1. **Cause**: I had created a double loop within finish_game(). As it already uses keep_playing() logic, I only needed to ask if the return was False once.
    1. **Solution**: Instead of a second if statement, I coded to exit on else.
-1. 1. **Issue**: So many options, so much time lost
+1. 1. **Issue**: So many options, so much time lost.
    1. **Cause**: I found the ASCII Art Archive at the last minute and found it way more intuitive to use and it offered so many options compared to the previous ASCII art generators I had tried, that I ended up getting distracted by adding some more colours instead of focussing on finshing the README!
    1. **Solution**: Try to find more fun additions earlier in the project, so the deadline isn't stifling my creativity!
 
