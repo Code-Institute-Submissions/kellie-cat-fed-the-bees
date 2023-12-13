@@ -41,6 +41,7 @@ This game aims to provide entertainment while highlighting the importance of the
   - [Technologies Used](#technologies-used)
     - [Languages Used](#languages-used)
     - [Frameworks, Libraries \& Programs Used](#frameworks-libraries--programs-used)
+    - [Data Flow](#data-flow)
   - [Deployment \& Development](#deployment--development)
     - [Playing on a Local machine or via Gitpod Terminal](#playing-on-a-local-machine-or-via-gitpod-terminal)
     - [Final Deployment to Heroku](#final-deployment-to-heroku)
@@ -264,6 +265,9 @@ The programme starts with the
 1. In play_game(), the guess is checked against the random coordinates and the player is given feedback
 1. At the end of the game, if success is zero, the GAME_OVER art is printed in Red, but if success is not zero, it is printed in Green.
 1. finish_game() can restart the application by clearing the inputs, or exit the program.
+
+As you can see, the data flow was aided by the Lucidchart planning.
+![Lucidchart](docs/flowcharts/lucidchart-pp3-edited.png)
 
 ## Deployment & Development
 
