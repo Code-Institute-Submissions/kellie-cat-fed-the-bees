@@ -360,14 +360,14 @@ Continue validation
 | Name | A name of letters |  A length of <= 2 characters |With len(player) <= 2 | "'INPUT' is not a valid choice, tell the friendly bees your name with a few more letters or characters" |
 | - | - | A number of spaces | The extra spaces are stripped | Same as <= 2 characters
 | - | - | Numbers only | player.isnumeric() | "Numbers on their own don't count! Try a name with letters or characters too"
-| Row and Column | An integer 1 - 8 | An integer outside the range | not in range(0, 8) |"That is outside the hive. Pick a number 1-8" |
+| Row and Column | An integer 1 - 8 | An integer outside the range | not in range(0, SIZE) |"That is outside the hive. Pick a number 1-8" |
 | - | - | An invalid character | ValueError | "That's not a valid choice, it gave an error. Please select a valid row by picking a number from 1-8, then enter"
 | Continue | Y / N | lowercase | A lower case letter is converted with .upper and accepted | NA |
 | - | - | An invalid character | not == 'Y' or 'N' | "Invalid choice. Please enter 'Y' or 'N'" |
 
 ### User Stories
 
-I asked my fellow Code Instituters on Slack for advice in the channel Peer Code Review and Niclas_5P kindly said that no bees were fed until the 3rd round. Because of this, I decided to increase the number of bees to 12 and the number of turns to 8 to make the game a bit more satisfactory for players.
+I asked my fellow Code Instituters on Slack for advice in the channel Peer Code Review and Niclas_5P kindly said that no bees were fed until the 3rd round. Because of this, I decided to increase the number of bees to 15 and the number of turns to 8 to make the game a bit more satisfactory for players.
 
 ![User story](docs/screenshots/pp3-user-story.png)
 
@@ -386,7 +386,7 @@ Many issues were discovered and resolved throughout the project.
 1. 1. **Issue**: Code not running - file named 'asciiart' not found.
    1. **Cause**: I had named asciiart without the '.py' at the end.
    1. **Solution**: To make sure naming conventions are followed.
-1. 1. **Issue**: On occasion, the random co-ordinates duplicated themselves, to there may only be 9 or even on occasion, only 8 bees.
+1. 1. **Issue**: On occasion, the random co-ordinates duplicated themselves, to there may one less or even on occasion, 2 less bees than expected.
    1. **Cause**: No validation to check if the random co-ordinates had already been returned.
    1. **Solution**: I appended the random coordinates to a list and added an if statement to run the code again if they already existed in the list.
 1. 1. **Issue**: The hive already being populated if the player chose to play again.
