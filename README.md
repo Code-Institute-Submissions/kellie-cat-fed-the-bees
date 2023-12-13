@@ -252,9 +252,9 @@ This game was made using Python.
 
 [Colorama Library](https://pypi.org/project/colorama/) - For coloured text.
 
-Unicode - For the bee and hexagon characters.
+unicode - For the bee and hexagon characters.
 
-Random - For randint to generate random integers.
+random - For randint to generate random integers.
 
 os - To restart the Python Script from the beginning.
 
@@ -324,7 +324,7 @@ The project was deployed to [Heroku](https://www.heroku.com) using the below pro
 
 The game was tested as it was built with Python, using the command **pylint**.
 
-The relevant validator for Python, [Code Institute PEP8 Python Linter](https://pep8ci.herokuapp.com/) was used to check the code.
+The relevant validator for Python, [Code Institute PEP8 Python Linter](https://pep8ci.herokuapp.com/) was used to check the code, and no errors were found.
 
 ![Python validation](docs/screenshots/pp3-pep8-validation.png "Screenshot of Python Validation for run.py")
 For run.py
@@ -359,7 +359,7 @@ Continue validation
 | ------ | ------ | ------ | ------ | ----- |
 | Name | A name of letters |  A length of <= 2 characters |With len(player) <= 2 | "'INPUT' is not a valid choice, tell the friendly bees your name with a few more letters or characters" |
 | - | - | A number of spaces | The extra spaces are stripped | Same as <= 2 characters
-| - | - | Numbers only | player.isnumeric() | "Numbers on their own don't count! Try a name with letters or \ncharacters too"
+| - | - | Numbers only | player.isnumeric() | "Numbers on their own don't count! Try a name with letters or characters too"
 | Row and Column | An integer 1 - 8 | An integer outside the range | not in range(0, 8) |"That is outside the hive. Pick a number 1-8" |
 | - | - | An invalid character | ValueError | "That's not a valid choice, it gave an error. Please select a valid row by picking a number from 1-8, then enter"
 | Continue | Y / N | lowercase | A lower case letter is converted with .upper and accepted | NA |
@@ -386,17 +386,17 @@ Many issues were discovered and resolved throughout the project.
 1. 1. **Issue**: Code not running - file named 'asciiart' not found.
    1. **Cause**: I had named asciiart without the '.py' at the end.
    1. **Solution**: To make sure naming conventions are followed.
-1. 1. **Issue**: On occasion, the random co-ordinates duplicated themselves, to there may only be 9 or even on occasion 8 bees.
+1. 1. **Issue**: On occasion, the random co-ordinates duplicated themselves, to there may only be 9 or even on occasion, only 8 bees.
    1. **Cause**: No validation to check if the random co-ordinates had already been returned.
    1. **Solution**: I appended the random coordinates to a list and added an if statement to run the code again if they already existed in the list.
 1. 1. **Issue**: The hive already being populated if the player chose to play again.
    1. **Cause**: The previous game's co-ordinates were still in play.
    1. **Solution**: Refreshing the program from the beginning.
-1. 1. **Issue**: User had to input N twice to exit the game.
+1. 1. **Issue**: User had to input 'N' twice to exit the game.
    1. **Cause**: I had created a double loop within finish_game(). As it already uses keep_playing() logic, I only needed to ask if the return was False once.
    1. **Solution**: Instead of a second if statement, I coded to exit on else.
 1. 1. **Issue**: So many options, so much time lost.
-   1. **Cause**: I found the ASCII Art Archive at the last minute and found it way more intuitive to use and it offered so many options compared to the previous ASCII art generators I had tried, that I ended up getting distracted by adding some more colours instead of focussing on finshing the README!
+   1. **Cause**: I found the ASCII Art Archive at the last minute and found it way more intuitive to use and it offered so many options compared to the previous ASCII art generators I had tried, that I ended up getting distracted by adding some more colours instead of focussing on finishing the README!
    1. **Solution**: Try to find more fun additions earlier in the project, so the deadline isn't stifling my creativity!
 
 ### Known Bugs
