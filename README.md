@@ -53,6 +53,18 @@ This game aims to provide entertainment while highlighting the importance of the
 
 Free the Bees is a command line game played on one screen with elements that update to progress the game and give the user feedback. It is deployed to Heroku to ensure accessibility for users.
 
+### How to Play
+
+Free the Bees is inspired by the well-known game Battleships, with a few key differences. Instead of trying to hurt your opponent, the aim is to help the bees!
+
+1. Load the game and follow the prompts to read the instructions
+1. Enter a player name
+1. Confirm you would like to play by answering 'Would you like to keep playing Free the Bees?' with Y.
+1. Guess a row and then a column you think the bee is stuck at
+1. Did you feed a bee? The program will tell you and then, when you have confirmed you would like to continue, you will see your guess in the hive. A bee if you found one, an empty hexagon if you missed.
+1. You have a limited amount of nectar (number of guesses) to help the bees
+1. If you have another urgent task, you can leave the game when asked 'Would you like to keep playing Free the Bees?' Enter N.
+
 ### Key information for the site
 
 - A Title Art welcomes the new user to the game and invites them to commence playing.
@@ -335,10 +347,11 @@ There are no unfixed bugs in Free the Bees.
 - [Python OOP Tutorial Playlist by Corey Shafer](https://www.youtube.com/playlist?list=PL-osiE80TeTsqhIuOqKhwlXsIBIdSeYtc)
 - [Geeks for Geeks leeson on ASCII art](https://www.geeksforgeeks.org/python-ascii-art-using-pyfiglet-module/)
 - [Python Tutorial Series by Knowledge Mavens](https://www.youtube.com/watch?v=xz9GrOwQ_5E)
+- [Patt Hoege for the idea to shorten the Colorama commands](https://github.com/patthoege/hangmangame-pp3-python)
 
 ### Content
 
-Concept and content written by Kellie McConnell, a human tired of the normalisation of violence and war.
+Concept and content written by Kellie McConnell.
 
 ### Acknowledgments
 
