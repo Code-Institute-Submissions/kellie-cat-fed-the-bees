@@ -63,13 +63,15 @@ Free the Bees is a command line application game played on one screen with eleme
 
 Free the Bees is inspired by the well-known game Battleships, with a few key differences. Instead of trying to hurt your opponent, the aim is to help the bees!
 
-1. Load the game and follow the prompts to read the instructions.
+1. Load the game on with Chrome web browser and follow the prompts to read the instructions.
 1. Enter a player name.
 1. Confirm you would like to play by answering 'Would you like to keep playing Free the Bees?' with Y.
 1. Guess a row and then a column you think the bee is stuck at
 1. Did you feed a bee? The program will tell you and then, when you have confirmed you would like to continue, you will see your guess in the hive. A bee if you found one, an empty hexagon if you missed.
-1. You have a limited amount of nectar (number of guesses) to help the bees.
+1. You have a limited amount of nectar i.e. number of guesses to help the bees. 
 1. If you have another urgent task, you can leave the game when asked 'Would you like to keep playing Free the Bees?' Enter N.
+1. Feed as many bees as you can and get your results!
+1. At the end of the game, you can leave when asked 'Would you like to keep playing Free the Bees?' by entering N, or play another round of Free the Bees by entering Y.
 
 ### Key information for the site
 
@@ -146,22 +148,24 @@ Title Art
 #### The Backstory and Instructions
 
 - Once the user has confirmed they are ready, the backstory of the game is revealed with instructions on how to play
-- The player is asked to enter their name and this is validated before moving on
-- Then the player is asked to confirm they would like to proceed
 
 ![A screenshot of the backstory](docs/screenshots/pp3-instructions.png "Screenshot of the backstory")
 Backstory
 
+- The player is asked to enter their name and this is validated before moving on
+- Then the player is asked to confirm they would like to proceed
+
 ![A screenshot of name input](docs/screenshots/pp3-player-name-input.png "Screenshot of name input")
 Name Input
 
-#### The Hive
 After each turn, the user is asked if they would like to
 - continue
 - or exit
 
 ![A screenshot of early exit](docs/screenshots/pp3-early-exit.png "Screenshot of early exit")
 Early exit
+
+#### The Hive
 
 Once they have confirmed they would like to proceed, the player sees
   - a visual display of the bee hive where the bees are trapped
@@ -188,7 +192,7 @@ The Hive
 #### Final feedback
 If they choose to complete all the turns, when the player is out of turns and the game is over
   - the players get their final score
-  - along with some personalised feedback
+  - along with some personalised feedback. The art is green if they found a bee, and red if all the bees are still hangry, or white if they leave early.
 
 ![A screenshot of final results](docs/screenshots/pp3-final-positive.png "Screenshot of final results")
 Final feedback
@@ -250,7 +254,7 @@ This game was made using Python.
 ## Deployment & Development
 
 ### Playing on a Local machine or via Gitpod Terminal
-This project was developed using a [specialized Code Institute template](https://github.com/Code-Institute-Org/python-essentials-template) which simulates a terminal in the web browser. Due to this, I optimized the game to work by deploying the [final version on Heroku](https://fed-the-bees-4595451a08dc.herokuapp.com/), and I do not recommend playing it locally. I have included this section only for completeness.
+This project was developed using a [specialized Code Institute template](https://github.com/Code-Institute-Org/python-essentials-template) which simulates a terminal in the Google Chrome web browser. Due to this, I optimized the game to work by deploying the [final version on Heroku](https://fed-the-bees-4595451a08dc.herokuapp.com/), and I do not recommend playing it locally. I have included this section only for completeness.
 
 1. Navigate to the [GitHub repository](https://github.com/kellie-cat/fed-the-bees), and follow [these steps to clone the project](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) into your IDE of choice
    
