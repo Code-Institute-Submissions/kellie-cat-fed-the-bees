@@ -192,7 +192,7 @@ The Hive
 #### Final feedback
 If they choose to complete all the turns, when the player is out of turns and the game is over
   - the players get their final score
-  - along with some personalised feedback. The art is green if they found a bee, and red if all the bees are still hangry, or white if they leave early.
+  - along with some personalised feedback. The art is green if they found a bee, and red if all the bees are still hangry.
 
 ![A screenshot of final results](docs/screenshots/pp3-final-positive.png "Screenshot of final results")
 Final feedback
@@ -317,6 +317,16 @@ Column valdidation
 
 ![A screenshot of invalid input](docs/screenshots/pp3-player-want-to-continue.png "Screenshot of continue validation")
 Continue valdidation
+
+| Stage | Expected input | Invalid input | Management | Feedback |
+| ------ | ------ | ------ | ------ | ----- |
+| Name | A name of letters |  A length of <= 2 characters |With len(player) <= 2 | "'INPUT' is not a valid choice, tell the friendly bees your name with a few more letters or characters" |
+| - | - | A number of spaces | The extra spaces are stripped | Same as <= 2 characters
+| - | - | Numbers only | player.isnumeric() | "Numbers on their own don't count! Try a name with letters or \ncharacters too"
+| Row and Column | An integer 1 - 8 | An integer outside the range | not in range(0, 8) |"That is outside the hive. Pick a number 1-8" |
+| - | - | An invalid character | ValueError | "That's not a valid choice, it gave an error. Please select a valid row by picking a number from 1-8, then enter"
+| Continue | Y / N | lowercase | A lower case letter is converted with .upper and accepted | NA |
+| - | - | An invalid character | not == 'Y' or 'N' | "Invalid choice. Please enter 'Y' or 'N'" |
 
 ### Resolved Bugs
 
