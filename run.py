@@ -152,7 +152,6 @@ def play_game():
     """
     miss = "\U00002B21"
     found_bee = "\U0001F41D"
-    computer_create_bees(PLAYER_BEE_HIVE)
     success = 0
 
     clear_console()
@@ -160,6 +159,8 @@ def play_game():
     print_intro()
 
     get_player_name()
+
+    computer_create_bees(PLAYER_BEE_HIVE)
 
     question = 'Would you like to keep playing Free the Bees? Enter Y or N:\n'
 
